@@ -4,42 +4,32 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 public class MapController : MonoBehaviour {
-    [SerializeField] private GameObject chunkPrefab;
+    [Header("配置")]
+    [SerializeField] private GameObject chunkPrefab;//之后可以通过ChunkSO在游戏开始时生成不同的区块
     [SerializeField] private int chunkSize;
     [SerializeField] private int loadRange;
 
+    [Header("性能优化")]
+    [Tooltip("每帧最多处理多少个区块的操作")]
+    [SerializeField] private int maxOpsPerFrame;
+
     private Vector2Int currentChunkCoord;
     private Vector2Int lastChunkCoord;
+    private Dictionary<Vector2Int, GameObject> activeChunks= new Dictionary<Vector2Int, GameObject>();
 
-    private Dictionary<Vector2Int, GameObject> activeChunks;
-    private List<Vector2Int> chunksToRemove;
-
-    private ObjectPool<GameObject> chunkPool;
-
-    private void Awake() {
-        activeChunks = new Dictionary<Vector2Int, GameObject>();
-        chunksToRemove = new List<Vector2Int>();
-
-        chunkPool = new ObjectPool<GameObject>(
-            () => Instantiate(chunkPrefab, transform),
-            (obj) => obj.SetActive(true),
-            (obj) => obj.SetActive(false),
-            (obj) => Destroy(obj),
-            false,
-            9,
-            50
-        );
-    }
+    // 用于记录正在运行的协程，防止冲突
+    private Coroutine updateCoroutine;
 
     private void Start() {
+        currentChunkCoord = GetChunkCoordFromPosition(PlayerStats.Instance.transform.position);
+        lastChunkCoord = currentChunkCoord;
         UpdateChunks();
     }
 
     private void Update() {
-        if (PlayerStats.instance == null) return;
+        if (PlayerStats.Instance == null) return;
 
-        currentChunkCoord.x = Mathf.FloorToInt(PlayerStats.instance.transform.position.x / chunkSize);
-        currentChunkCoord.y = Mathf.FloorToInt(PlayerStats.instance.transform.position.y / chunkSize);
+        currentChunkCoord = GetChunkCoordFromPosition(PlayerStats.Instance.transform.position);
 
         if (currentChunkCoord != lastChunkCoord) {
             UpdateChunks();
@@ -47,22 +37,44 @@ public class MapController : MonoBehaviour {
         }
     }
 
-    private void OnDestroy() {
-        chunkPool?.Dispose();
+    private Vector2Int GetChunkCoordFromPosition(Vector3 position) {
+        return new Vector2Int(
+            Mathf.FloorToInt(position.x / chunkSize),
+            Mathf.FloorToInt(position.y / chunkSize)
+        );
     }
 
     private void UpdateChunks() {
+        //如果上一次的协程还没跑完，玩家又移动了，先停止上一次的，避免重复生成或报错
+        if (updateCoroutine != null) {
+            StopCoroutine(updateCoroutine);
+        }
+
+        updateCoroutine = StartCoroutine(UpdateChunkCoroutine());
+    }
+
+    private IEnumerator UpdateChunkCoroutine() {
+        int opsCount = 0; // 操作计数器
+
         for (int x = -loadRange; x <= loadRange; x++) {
             for (int y = -loadRange; y <= loadRange; y++) {
                 Vector2Int chunkCoord = new Vector2Int(currentChunkCoord.x + x, currentChunkCoord.y + y);
 
                 if (!activeChunks.ContainsKey(chunkCoord)) {
                     SpawnChunk(chunkCoord);
+
+                    opsCount++;
+
+                    //如果这帧处理的数量超过了限制，就暂停，下一帧继续
+                    if (opsCount >= maxOpsPerFrame) {
+                        opsCount = 0; // 重置计数器
+                        yield return null; // 等待下一帧（Update循环结束后）
+                    }
                 }
             }
         }
 
-        chunksToRemove.Clear();
+        List<Vector2Int> chunksToRemove = new List<Vector2Int>();
 
         foreach (var key in activeChunks.Keys) {
             if (Mathf.Abs(key.x - currentChunkCoord.x) > loadRange || Mathf.Abs(key.y - currentChunkCoord.y) > loadRange) {
@@ -70,17 +82,25 @@ public class MapController : MonoBehaviour {
             }
         }
 
+        // 分帧移除
         foreach (var coord in chunksToRemove) {
-            chunkPool.Release(activeChunks[coord]);
-            activeChunks.Remove(coord);
+            if (activeChunks.ContainsKey(coord)) {
+                ObjectPoolManager.Instance.ReturnToPool(activeChunks[coord], chunkPrefab);
+                activeChunks.Remove(coord);
+
+                opsCount++;
+                if (opsCount >= maxOpsPerFrame) {
+                    opsCount = 0;
+                    yield return null;
+                }
+            }
         }
+
+        updateCoroutine = null;//表示该任务做完了，而不是当前帧携程结束
     }
 
     private void SpawnChunk(Vector2Int chunkCoord) {
-        GameObject chunk = chunkPool.Get();
-        chunk.transform.position = new Vector3(chunkCoord.x * chunkSize, chunkCoord.y * chunkSize, 0);
+        GameObject chunk =ObjectPoolManager.Instance.Spawn(chunkPrefab, new Vector2(chunkCoord.x * chunkSize, chunkCoord.y * chunkSize), Quaternion.identity);
         activeChunks.Add(chunkCoord, chunk);
-
-        //之后可以编写MapSO存储所有的不同的chunk预组件，再编写Chunk.cs初始化区块
     }
 }

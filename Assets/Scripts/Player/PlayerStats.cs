@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats instance {  get; private set; }
+    public static PlayerStats Instance {  get; private set; }
 
     [SerializeField] private CharacterSO characterData;
 
     public float CurrentMoveSpeed {  get; private set; }
 
     private void Awake() {
-        instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
 
-        CurrentMoveSpeed=characterData.MoveSpeed;
+        CurrentMoveSpeed =characterData.MoveSpeed;
     }
 }
