@@ -6,7 +6,7 @@ public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager Instance {  get; private set; }
 
-    //Prefab->闲置对象队列
+    //Prefab->闲置对象队列(clone)
     private Dictionary<GameObject,Queue<GameObject>> poolDictionary=new Dictionary<GameObject,Queue<GameObject>>();
 
     //把生成的对象分类放在父节点下
@@ -32,7 +32,7 @@ public class ObjectPoolManager : MonoBehaviour
             poolDictionary.Add(prefab, new Queue<GameObject>());
 
             //创建一个父节点来整理层级面板
-            GameObject parentObj=new GameObject(prefab.name+"Pool");
+            GameObject parentObj=new GameObject(prefab.name+" Pool");
             parentObj.transform.SetParent(this.transform);
             poolParents.Add(prefab,parentObj.transform);
         }
@@ -55,6 +55,8 @@ public class ObjectPoolManager : MonoBehaviour
         //尝试调用接口
         IPoolable poolable=objToSpawn.GetComponent<IPoolable>();
         if(poolable != null) {
+            poolable.SetPrefabReference(prefab);
+
             poolable.OnSpawn();
         }
 

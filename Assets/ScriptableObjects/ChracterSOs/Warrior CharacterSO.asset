@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e993ecfa33db2834aaf4083efac7f7fa, type: 3}
   m_Name: Warrior CharacterSO
   m_EditorClassIdentifier: 
+  maxHealth: 100
   moveSpeed: 5
