@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e993ecfa33db2834aaf4083efac7f7fa, type: 3}
-  m_Name: Warrior CharacterSO
+  m_Name: Priest CharacterSO
   m_EditorClassIdentifier: 
-  characterName: Warrior
-  icon: {fileID: 1901032351, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
+  characterName: Priest
+  icon: {fileID: 1102026582, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   maxHealth: 100
   moveSpeed: 5
   might: 1

@@ -375,7 +375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_12
+      name: goldn cross
       rect:
         serializedVersion: 2
         x: 0
@@ -396,7 +396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_13
+      name: golden bar
       rect:
         serializedVersion: 2
         x: 16
@@ -417,7 +417,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_14
+      name: crown
       rect:
         serializedVersion: 2
         x: 32
@@ -480,7 +480,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_17
+      name: gold ring
       rect:
         serializedVersion: 2
         x: 80
@@ -501,7 +501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_18
+      name: silver ring
       rect:
         serializedVersion: 2
         x: 96
@@ -522,7 +522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_19
+      name: wallet
       rect:
         serializedVersion: 2
         x: 112
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_24
+      name: eyeball
       rect:
         serializedVersion: 2
         x: 0
@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_25
+      name: perfume
       rect:
         serializedVersion: 2
         x: 16
@@ -669,7 +669,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_26
+      name: four-leaf clover
       rect:
         serializedVersion: 2
         x: 32
@@ -690,7 +690,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_27
+      name: necklace
       rect:
         serializedVersion: 2
         x: 48
@@ -711,7 +711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_28
+      name: flying boots
       rect:
         serializedVersion: 2
         x: 64
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_29
+      name: the bible
       rect:
         serializedVersion: 2
         x: 80
@@ -816,7 +816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_33
+      name: animal trap
       rect:
         serializedVersion: 2
         x: 144
@@ -1026,7 +1026,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_43
+      name: super experience potion
       rect:
         serializedVersion: 2
         x: 112
@@ -1278,7 +1278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_55
+      name: mage
       rect:
         serializedVersion: 2
         x: 112
@@ -1635,7 +1635,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_72
+      name: shooter
       rect:
         serializedVersion: 2
         x: 0
@@ -1698,7 +1698,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_75
+      name: assassin
       rect:
         serializedVersion: 2
         x: 48
@@ -1866,7 +1866,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_83
+      name: priest
       rect:
         serializedVersion: 2
         x: 176
@@ -2118,7 +2118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_95
+      name: zombie
       rect:
         serializedVersion: 2
         x: 176
@@ -3147,7 +3147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_144
+      name: shield
       rect:
         serializedVersion: 2
         x: 0
@@ -3294,7 +3294,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_151
+      name: knife
       rect:
         serializedVersion: 2
         x: 112
@@ -3567,7 +3567,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_164
+      name: great sword
       rect:
         serializedVersion: 2
         x: 128
@@ -3987,7 +3987,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_184
+      name: axe
       rect:
         serializedVersion: 2
         x: 64
@@ -4008,7 +4008,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_185
+      name: upgrade axe
       rect:
         serializedVersion: 2
         x: 80
@@ -4071,7 +4071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_188
+      name: morning star
       rect:
         serializedVersion: 2
         x: 128
@@ -4155,7 +4155,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_192
+      name: hammer
       rect:
         serializedVersion: 2
         x: 0
@@ -4417,6 +4417,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      animal trap: 1935820583
+      assassin: -144189684
+      axe: -207395235
+      crown: 299418348
+      eyeball: -1382828462
+      flying boots: -313548114
+      four-leaf clover: -1091127653
+      gold ring: -1624958731
+      golden bar: 2008281063
+      goldn cross: -1026122933
+      great sword: -1168566554
+      hammer: -1676965454
+      knife: -1324280842
+      mage: 1327659719
+      morning star: -992084953
+      necklace: -690087182
+      perfume: -1740296439
+      priest: 1102026582
+      shield: -265575237
+      shooter: -625690509
+      silver ring: 599522540
       speite sheet 3_0: -657510260
       speite sheet 3_1: -1553595134
       speite sheet 3_10: 323393064
@@ -4441,7 +4462,6 @@ TextureImporter:
       speite sheet 3_117: -43198500
       speite sheet 3_118: -36710207
       speite sheet 3_119: 2046979270
-      speite sheet 3_12: -1026122933
       speite sheet 3_120: 814298751
       speite sheet 3_121: -23847984
       speite sheet 3_122: 77252270
@@ -4452,7 +4472,6 @@ TextureImporter:
       speite sheet 3_127: -1718118825
       speite sheet 3_128: 40772848
       speite sheet 3_129: -723074003
-      speite sheet 3_13: 2008281063
       speite sheet 3_130: 747287057
       speite sheet 3_131: 1376267993
       speite sheet 3_132: -1672658435
@@ -4463,12 +4482,10 @@ TextureImporter:
       speite sheet 3_137: 1082064018
       speite sheet 3_138: -99003612
       speite sheet 3_139: 158563570
-      speite sheet 3_14: 299418348
       speite sheet 3_140: 592735051
       speite sheet 3_141: -2105674558
       speite sheet 3_142: 1856017593
       speite sheet 3_143: -1220081452
-      speite sheet 3_144: -265575237
       speite sheet 3_145: -4727073
       speite sheet 3_146: -1719865171
       speite sheet 3_147: 1959795775
@@ -4476,7 +4493,6 @@ TextureImporter:
       speite sheet 3_149: 484222594
       speite sheet 3_15: -124312427
       speite sheet 3_150: 1839892401
-      speite sheet 3_151: -1324280842
       speite sheet 3_152: -39766468
       speite sheet 3_153: -1945434806
       speite sheet 3_154: 1532261786
@@ -4490,13 +4506,11 @@ TextureImporter:
       speite sheet 3_161: -2080950679
       speite sheet 3_162: -400535459
       speite sheet 3_163: 1774157202
-      speite sheet 3_164: -1168566554
       speite sheet 3_165: -2039012949
       speite sheet 3_166: 1158031094
       speite sheet 3_167: -538497825
       speite sheet 3_168: 101029983
       speite sheet 3_169: -586792870
-      speite sheet 3_17: -1624958731
       speite sheet 3_170: 1843866412
       speite sheet 3_171: 2042152542
       speite sheet 3_172: -1579154574
@@ -4507,21 +4521,15 @@ TextureImporter:
       speite sheet 3_177: -2012469793
       speite sheet 3_178: 1079314079
       speite sheet 3_179: 1856464260
-      speite sheet 3_18: 599522540
       speite sheet 3_180: -835631083
       speite sheet 3_181: 895950860
       speite sheet 3_182: -1886641323
       speite sheet 3_183: -228474773
-      speite sheet 3_184: -207395235
-      speite sheet 3_185: -1340288698
       speite sheet 3_186: 272878900
       speite sheet 3_187: 1996805852
-      speite sheet 3_188: -992084953
       speite sheet 3_189: -340943972
-      speite sheet 3_19: -829042428
       speite sheet 3_190: -1496059199
       speite sheet 3_191: -1791274326
-      speite sheet 3_192: -1676965454
       speite sheet 3_193: -1700934923
       speite sheet 3_194: -2031858486
       speite sheet 3_195: -2137941205
@@ -4538,17 +4546,10 @@ TextureImporter:
       speite sheet 3_21: -1338952611
       speite sheet 3_22: 1566962949
       speite sheet 3_23: 681801730
-      speite sheet 3_24: -1382828462
-      speite sheet 3_25: -1740296439
-      speite sheet 3_26: -1091127653
-      speite sheet 3_27: -690087182
-      speite sheet 3_28: -313548114
-      speite sheet 3_29: 910308174
       speite sheet 3_3: -488729171
       speite sheet 3_30: 981672632
       speite sheet 3_31: 948734194
       speite sheet 3_32: -21185116
-      speite sheet 3_33: 1935820583
       speite sheet 3_34: -520732306
       speite sheet 3_35: 1015867375
       speite sheet 3_36: 815455866
@@ -4559,7 +4560,6 @@ TextureImporter:
       speite sheet 3_40: 522382156
       speite sheet 3_41: -614740339
       speite sheet 3_42: 2132277547
-      speite sheet 3_43: 1404640153
       speite sheet 3_44: 1360535266
       speite sheet 3_45: -508263908
       speite sheet 3_46: -148906403
@@ -4571,7 +4571,6 @@ TextureImporter:
       speite sheet 3_52: 543797865
       speite sheet 3_53: -1998310070
       speite sheet 3_54: 1064538629
-      speite sheet 3_55: 1327659719
       speite sheet 3_56: -953523651
       speite sheet 3_57: -1987801203
       speite sheet 3_58: -1146253178
@@ -4590,10 +4589,8 @@ TextureImporter:
       speite sheet 3_7: -1114839356
       speite sheet 3_70: 1119509905
       speite sheet 3_71: -1020474099
-      speite sheet 3_72: -625690509
       speite sheet 3_73: -1627325961
       speite sheet 3_74: 39021012
-      speite sheet 3_75: -144189684
       speite sheet 3_76: 318114946
       speite sheet 3_77: -1588832532
       speite sheet 3_78: 73915098
@@ -4602,7 +4599,6 @@ TextureImporter:
       speite sheet 3_80: 527076379
       speite sheet 3_81: 1128466206
       speite sheet 3_82: -1109265491
-      speite sheet 3_83: 1102026582
       speite sheet 3_84: -1188390500
       speite sheet 3_85: 683655972
       speite sheet 3_86: -1170044040
@@ -4615,12 +4611,16 @@ TextureImporter:
       speite sheet 3_92: -1878756068
       speite sheet 3_93: 152563116
       speite sheet 3_94: -498689564
-      speite sheet 3_95: 842351234
       speite sheet 3_96: 1916007452
       speite sheet 3_97: 1587795072
       speite sheet 3_98: 1867622729
       speite sheet 3_99: -2069276333
+      super experience potion: 1404640153
+      the bible: 910308174
+      upgrade axe: -1340288698
+      wallet: -829042428
       warrior: 1901032351
+      zombie: 842351234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
