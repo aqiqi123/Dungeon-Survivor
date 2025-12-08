@@ -13,6 +13,11 @@ public class HealthSystem : MonoBehaviour, IDamageable {
         currentHealth=maxHealth;
     }
 
+    public void IncreaseMaxHealth(float amount) {
+        maxHealth+=amount;
+        currentHealth += amount;
+    }
+
     private void OnEnable() // 配合对象池，每次激活时重置血量
     {
         currentHealth = maxHealth;
