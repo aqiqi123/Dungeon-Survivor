@@ -16,6 +16,7 @@ public class CharacterSO : ScriptableObject
     [Tooltip("例如 1.1 代表增加 10% 子弹飞行速度")][SerializeField] private float projectileSpeed;
     [SerializeField] private float durationMultiplier;
     [SerializeField] private float areaMultiplier;
+    [SerializeField] private int additionalPierceCount;
 
     public string CharacterName=>characterName;
     public Sprite Icon=>icon;
@@ -27,4 +28,5 @@ public class CharacterSO : ScriptableObject
     public float ProjectileSpeed => projectileSpeed;
     public float DurationMultiplier => durationMultiplier;
     public float AreaMultiplier => areaMultiplier;
+    public int AdditionalPierceCount=>additionalPierceCount;
 }

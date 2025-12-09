@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    public WeaponSO weaponData {  get; private set; }
+    [SerializeField] private WeaponSO weaponData;
+
+    [SerializeField] protected LayerMask enemyLayer;
+    [SerializeField] protected float detectRange;
 
     public GameObject CurrentBulletPrefab { get; private set; }
     public float CurrentDamage {  get; private set; }
@@ -13,17 +16,18 @@ public abstract class WeaponBase : MonoBehaviour
     public float CurrentDuration { get; private set; }
     public int CurrentCount { get; private set; }
     public float CurrentArea { get; private set; }
+    public int CurrentPierce { get; private set; }
+    public float CurrentProjectileInterval { get; private set; }
+    public float CurrentAttackInterval { get; private set; }
 
     protected float timer;
 
-    public void Initialize(WeaponSO data) {
-        weaponData = data;
-
+    protected virtual void Start() {
         if (PlayerStats.Instance != null) {
             PlayerStats.Instance.OnPlayerStatsChanged += RecalculateStats;
         }
 
-        RecalculateStats(); // 初始算一次
+        RecalculateStats();
     }
 
     protected virtual void OnDestroy() {
@@ -56,6 +60,15 @@ public abstract class WeaponBase : MonoBehaviour
         // 持续时间 = 基础时间 * 持续时间加成
         CurrentDuration = weaponData.Duration * PlayerStats.Instance.CurrentDurationMultiplier;
 
+        //穿透=基础穿透+穿透加成
+        CurrentPierce = weaponData.Pierce + PlayerStats.Instance.CurrentAdditionalPierceCount;
+
+        //子弹间隔时间
+        CurrentProjectileInterval = weaponData.ProjectileInterval;
+
+        //持续性武器攻击间隔
+        CurrentAttackInterval = weaponData.AttackInterval;
+
         // 如果是光环类武器，这里可能需要更新一下 transform.localScale 来立刻反映范围变化
         // 调用一个新方法，通知子类数值变了
         OnStatsUpdated();
@@ -69,7 +82,56 @@ public abstract class WeaponBase : MonoBehaviour
         }
     }
 
-    // 供子类重写的空方法
+    //获取范围内最近的敌人
+    protected virtual Transform GetNearestEnemy() {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectRange, enemyLayer);
+
+        Transform bestTarget = null;
+        float minDst = Mathf.Infinity;
+
+        foreach (var hit in hits) {
+            float dst = Vector3.Distance(transform.position, hit.transform.position);
+
+            if (dst < minDst) {
+                minDst = dst;
+                bestTarget = hit.transform;
+            }
+        }
+
+        return bestTarget;
+    }
+
+    //获取范围内随机敌人
+    protected virtual List<Transform> GetRandomEnemy() {
+        Collider2D[] allEnemies = Physics2D.OverlapCircleAll(transform.position, detectRange, enemyLayer);
+
+        //筛选出有效的、活着的敌人
+        List<Transform> validTargets = new List<Transform>();
+        foreach (var collider in allEnemies) {
+            if (collider.gameObject.activeInHierarchy) {
+                validTargets.Add(collider.transform);
+            }
+        }
+
+        if (validTargets.Count > 0) {
+            // 洗牌算法 (Fisher-Yates Shuffle)
+            for (int i = 0; i < validTargets.Count; i++) {
+                Transform temp = validTargets[i];
+                int randomIndex = Random.Range(i, validTargets.Count);
+                validTargets[i] = validTargets[randomIndex];
+                validTargets[randomIndex] = temp;
+            }
+        }
+
+        return validTargets;
+    }
+
+    //绘制武器攻击范围
+    protected virtual void OnDrawGizmosSelected() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+    }
+
     protected virtual void OnStatsUpdated() { }
 
     protected abstract void Attack();

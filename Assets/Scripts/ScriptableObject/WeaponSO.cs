@@ -18,6 +18,9 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private float duration;//光环、圣经持续时间
     [SerializeField] private int count;
     [SerializeField] private float area;
+    [SerializeField] private int pierce;
+    [SerializeField] private float projectileInterval;//当发射多个武器时的时间间隔
+    [SerializeField] private float attackInterval;//持续性武器的攻击间隔
 
     public string WeaponName => weaponName;
     public Sprite Icon => icon;
@@ -29,4 +32,7 @@ public class WeaponSO : ScriptableObject
     public float Duration => duration;
     public int Count => count;
     public float Area => area;
+    public int Pierce => pierce;
+    public float ProjectileInterval => projectileInterval;
+    public float AttackInterval => attackInterval;
 }

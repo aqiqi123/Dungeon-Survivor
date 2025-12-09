@@ -9,8 +9,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Vector2 facingDirection {  get; private set; }
+
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        facingDirection=Vector2.right;
     }
 
     private void FixedUpdate() {
@@ -22,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveDir.x != 0) {
             visual.flipX = moveDir.x < 0;
+        }
+
+        if (moveDir != Vector2.zero) {
+            facingDirection = moveDir;
         }
 
         rb.velocity = moveDir * PlayerStats.Instance.CurrentMoveSpeed;

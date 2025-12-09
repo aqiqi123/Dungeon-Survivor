@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Knife
   icon: {fileID: -1324280842, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  weaponPrefab: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 4168822493194901413, guid: 7ed2f0c9f9531514396fd739adc2db73, type: 3}
+  bulletPrefab: {fileID: 3013048451079465807, guid: 11ba92ab490f4c94a904183c8f8764c9, type: 3}
   damage: 30
   cooldown: 3
-  speed: 5
+  speed: 10
   duration: 5
   count: 1
   area: 1
+  pierce: 1
+  projectileInterval: 0

@@ -18,6 +18,7 @@ public class PassiveItemSO : ScriptableObject
     [Tooltip("例如 0.1 代表增加 10% 子弹飞行速度")][SerializeField] private float speedBonus;
     [Tooltip("例如 0.1 代表增加 10% 持续时间")][SerializeField]private float durationBonus;
     [Tooltip("增加投射物数量 (整数)")][SerializeField]private int amountBonus;
+    [SerializeField]private int pierceBonus;
 
     public string ItemName=>itemName;
     public Sprite Icon=>icon;
@@ -29,4 +30,5 @@ public class PassiveItemSO : ScriptableObject
     public float SpeedBonus => speedBonus;
     public float DurationBonus => durationBonus;
     public int AmountBonus => amountBonus;
+    public int PierceBonus => pierceBonus;
 }
