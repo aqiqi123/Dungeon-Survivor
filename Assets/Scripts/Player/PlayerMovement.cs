@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer visual;
+    [SerializeField] private Animator animator;
+
+    private readonly string MOVESPEED = "moveSpeed";
 
     private Rigidbody2D rb;
 
@@ -32,5 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = moveDir * PlayerStats.Instance.CurrentMoveSpeed;
+
+        animator.SetFloat(MOVESPEED, moveDir.sqrMagnitude);
     }
 }
