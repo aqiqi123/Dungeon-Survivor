@@ -17,8 +17,10 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 5
   might: 1
+  magnet: 1
   cooldownReduction: 0
   additionalProjectileCount: 0
   projectileSpeed: 1
   durationMultiplier: 1
   areaMultiplier: 1
+  additionalPierceCount: 0

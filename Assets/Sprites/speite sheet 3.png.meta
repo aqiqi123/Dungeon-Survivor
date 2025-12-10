@@ -984,7 +984,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_41
+      name: health potion
       rect:
         serializedVersion: 2
         x: 80
@@ -4429,6 +4429,7 @@ TextureImporter:
       goldn cross: -1026122933
       great sword: -1168566554
       hammer: -1676965454
+      health potion: -614740339
       knife: -1324280842
       mage: 1327659719
       morning star: -992084953
@@ -4558,7 +4559,6 @@ TextureImporter:
       speite sheet 3_39: 690970995
       speite sheet 3_4: -422051838
       speite sheet 3_40: 522382156
-      speite sheet 3_41: -614740339
       speite sheet 3_42: 2132277547
       speite sheet 3_44: 1360535266
       speite sheet 3_45: -508263908

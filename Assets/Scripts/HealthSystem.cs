@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour, IDamageable {
-    private float maxHealth;
-    private float currentHealth;
+    public float maxHealth {  get; private set; }
+    public float currentHealth {  get; private set; }
 
     public UnityEvent OnDeath;
     public UnityEvent<float> OnTakeDamage;
@@ -16,6 +16,11 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     public void IncreaseMaxHealth(float amount) {
         maxHealth+=amount;
         currentHealth += amount;
+    }
+
+    public void Heal(float amount) {
+        currentHealth+=amount;
+        if(currentHealth > maxHealth)currentHealth=maxHealth;
     }
 
     private void OnEnable() // 配合对象池，每次激活时重置血量

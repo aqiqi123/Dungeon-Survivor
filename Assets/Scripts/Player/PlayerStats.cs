@@ -11,12 +11,14 @@ public class PlayerStats : MonoBehaviour
 
     public event Action OnPlayerStatsChanged;//通知武器更新
     public event Action OnPlayerMaxHealthChanged;
+    public event Action OnPlayerHealthChanged;
 
     [SerializeField] private CharacterSO characterData;
 
     public float CurrentMaxHealth {  get; private set; }
     public float CurrentMoveSpeed {  get; private set; }
     public float CurrentMight {  get; private set; }
+    public float CurrentMagnet {  get; private set; }
     public float CurrentCooldownReduction {  get; private set; }
     public int CurrentAdditionalProjectileCount {  get; private set; }
     public float CurrentProjectileSpeed {  get; private set; }
@@ -46,6 +48,7 @@ public class PlayerStats : MonoBehaviour
         CurrentMaxHealth = characterData.MaxHealth;
         CurrentMoveSpeed = characterData.MoveSpeed;
         CurrentMight = characterData.Might;
+        CurrentMagnet = characterData.Magnet;
         CurrentCooldownReduction = characterData.CooldownReduction;
         CurrentAdditionalProjectileCount = characterData.AdditionalProjectileCount;
         CurrentProjectileSpeed = characterData.ProjectileSpeed;
@@ -60,6 +63,12 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseMight(float amount) {
         if (amount == 0) return;
         CurrentMight += amount;
+        UpdateStats();
+    }
+
+    public void IncreaseMagnet(float percentage) {
+        if (percentage == 0) return;
+        CurrentMagnet=CurrentMagnet*(1+percentage);
         UpdateStats();
     }
 
@@ -113,10 +122,16 @@ public class PlayerStats : MonoBehaviour
         UpdateStats();
     }
 
+    public void Heal(float amount) {
+        healthSystem.Heal(amount);
+        OnPlayerHealthChanged?.Invoke();
+    }
+
     public void ApplyPassiveItem(PassiveItemSO item) {
         if (item == null) return;
 
         IncreaseMight(item.MightBonus);
+        IncreaseMagnet(item.MagnetBonus);
         IncreaseCooldownReduction(item.CooldownReductionBonus);
         IncreaseMoveSpeed(item.MoveSpeedBonus);
         IncreaseArea(item.AreaBonus);

@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5028851888010065263}
   - component: {fileID: 1248185584486035935}
   - component: {fileID: 4002759099117783329}
+  - component: {fileID: 5652621198482844791}
   m_Layer: 8
   m_Name: Bat
   m_TagString: Untagged
@@ -227,3 +228,15 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5652621198482844791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595030349379072506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f0aa9b3ecd78f44bf8bed34dbae17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

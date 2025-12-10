@@ -11,6 +11,7 @@ public class PassiveItemSO : ScriptableObject
 
     [Header("属性加成（填0代表不修改）")]
     [Tooltip("例如 0.1 代表增加 10% 伤害")][SerializeField] private float mightBonus;
+    [Tooltip("例如 0.1 代表增加 10% 拾取范围")][SerializeField] private float magnetBonus;
     [Tooltip("例如 0.05 代表减少 5% 冷却")][SerializeField] private float cooldownReductionBonus;
     [Tooltip("例如 0.1 代表增加 10% 移动速度")][SerializeField] private float moveSpeedBonus;
     [Tooltip("例如 10 代表增加 10点 生命上限")][SerializeField] private float maxHealthBonus;
@@ -23,6 +24,7 @@ public class PassiveItemSO : ScriptableObject
     public string ItemName=>itemName;
     public Sprite Icon=>icon;
     public float MightBonus => mightBonus;
+    public float MagnetBonus => magnetBonus;
     public float CooldownReductionBonus => cooldownReductionBonus;
     public float MoveSpeedBonus => moveSpeedBonus;
     public float MaxHealthBonus => maxHealthBonus;
