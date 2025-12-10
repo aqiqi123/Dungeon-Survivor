@@ -18,8 +18,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3952989912738169477, guid: bb0eba902161ea042a8f4505e9493e41, type: 3}
   damage: 15
   cooldown: 5
-  speed: 16
-  duration: 3
+  speed: 20
+  duration: 2.5
   count: 1
   area: 1
   pierce: 0

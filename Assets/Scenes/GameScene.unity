@@ -639,6 +639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Round Shield Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 7982440490766140679, guid: 79bbd9d6aed7b524ba0141a4b1cb2e60, type: 3}
+      propertyPath: detectRange
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8349536360590195805, guid: 79bbd9d6aed7b524ba0141a4b1cb2e60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -928,7 +932,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1901032351, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1174,8 +1178,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79eb935848b8234bbd04c3599d31220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3595030349379072506, guid: 9bf6f42977619b44a9fed71ae2c96fba, type: 3}
-  spawnInterval: 1
+  range: {x: 18, y: 11}
+  waves:
+  - enemyPrefab: {fileID: 3595030349379072506, guid: 9bf6f42977619b44a9fed71ae2c96fba, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 3595030349379072506, guid: 163fa52342a5192438351df9801555a7, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 5413134535459970255, guid: c64eeac9f90f8a94c80d894f0b0ac74f, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 2030611633800110908, guid: e06e8d9203b3c3147b5e77f7f86883d3, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 5116629688606356631, guid: 3d08e8747ac2fe745b208c885342a41a, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 7352603860389567573, guid: ccfd0278c55566f4e9dc21d946f8151b, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  - enemyPrefab: {fileID: 9202159303875419705, guid: facebffabf92ad741b4e0239c4cfe19c, type: 3}
+    spawnInterval: 1
+    spawnTimer: 0
+    enemiesPerWave: 5
+    spawnedEnemyCount: 0
+  waveNumber: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

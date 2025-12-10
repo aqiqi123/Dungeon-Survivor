@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab28690e74b53745a9bc8ce3454decc, type: 3}
+  m_Name: Gray Mouse LootTable
+  m_EditorClassIdentifier: 
+  guaranteedDrop: {fileID: 4436730836489889745, guid: 2c7d002397403514c8f2cb4d5b42414b, type: 3}
+  possibleDrops:
+  - prefab: {fileID: 3479299922363221201, guid: f710d293cab7a384faaecf03a07f8797, type: 3}
+    dropChance: 20
+  - prefab: {fileID: 4436730836489889745, guid: b8b431d6423e881419e1b9dd3ceec5d1, type: 3}
+    dropChance: 20
+  - prefab: {fileID: 1779240548738187962, guid: 73669bd519603fe48bd0d5ae4cdaacc4, type: 3}
+    dropChance: 20
