@@ -14,11 +14,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: The Bible
   icon: {fileID: 910308174, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  mightBonus: 0
-  cooldownReductionBonus: 0
-  moveSpeedBonus: 0
-  maxHealthBonus: 0
-  areaBonus: 0
-  speedBonus: 0
-  durationBonus: 0
-  amountBonus: 0
+  levelData:
+  - description: All weapons cooldowm decreased by 0.5s
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0.5
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: All weapons cooldowm decreased by 0.5
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0.5
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: All weapons cooldowm decreased by 0.5
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0.5
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: All weapons cooldowm decreased by 0.5
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0.5
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: All weapons cooldowm decreased by 0.5
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0.5
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0

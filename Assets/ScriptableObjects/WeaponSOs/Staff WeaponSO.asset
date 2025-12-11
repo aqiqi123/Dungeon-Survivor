@@ -14,11 +14,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Staff
   icon: {fileID: -105043337, guid: 76a8bfc0e7dc0194f98c4ca09d8d9e10, type: 3}
-  weaponPrefab: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  damage: 30
-  cooldown: 3
-  speed: 5
-  duration: 5
-  count: 1
-  area: 1
+  weaponPrefab: {fileID: 3475916571124033048, guid: 801419de884c3ee48b1e83d91f44c597, type: 3}
+  bulletPrefab: {fileID: 5357427517448737242, guid: 12049eb604f38504abd507b94deb3dd5, type: 3}
+  levelData:
+  - description: Shoot a fireball to the nearest enemy
+    damage: 30
+    cooldown: 5
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Damage increased by 10
+    damage: 40
+    cooldown: 5
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Cooldowm decreased by 1s
+    damage: 40
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 1
+    damage: 40
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 2
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Damage increased by 10
+    damage: 50
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 2
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 2
+    damage: 50
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 4
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0

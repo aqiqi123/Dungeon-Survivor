@@ -7,6 +7,7 @@ public class CharacterSO : ScriptableObject
 {
     [SerializeField] private string characterName;
     [SerializeField] private Sprite icon;
+    [SerializeField] private WeaponSO startingWeapon;
     [Space]
     [SerializeField] private float maxHealth;
     [SerializeField] private float moveSpeed;
@@ -21,6 +22,7 @@ public class CharacterSO : ScriptableObject
 
     public string CharacterName=>characterName;
     public Sprite Icon=>icon;
+    public WeaponSO StartingWeapon =>startingWeapon;
     public float MaxHealth=>maxHealth;
     public float MoveSpeed=> moveSpeed;
     public float Might => might;

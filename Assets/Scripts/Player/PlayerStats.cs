@@ -12,8 +12,10 @@ public class PlayerStats : MonoBehaviour
     public event Action OnPlayerStatsChanged;//通知武器更新
     public event Action OnPlayerMaxHealthChanged;
     public event Action OnPlayerHealthChanged;
+    public event Action OnGoldChanged;
 
     [SerializeField] private CharacterSO characterData;
+    public CharacterSO CharacterData => characterData;
 
     public float CurrentMaxHealth {  get; private set; }
     public float CurrentMoveSpeed {  get; private set; }
@@ -25,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public float CurrentDurationMultiplier {  get; private set; }
     public float CurrentAreaMultiplier {  get; private set; }
     public int CurrentAdditionalPierceCount { get; private set; }
+    public int CurrentGold { get; private set; }
 
     private HealthSystem healthSystem;
     private PlayerMovement playerMovement;
@@ -60,90 +63,46 @@ public class PlayerStats : MonoBehaviour
     }
 
     //提供给被动道具调用的方法
-    public void IncreaseMight(float amount) {
-        if (amount == 0) return;
-        CurrentMight += amount;
-        UpdateStats();
-    }
+    public void IncreaseMight(float amount) { if (amount == 0) return; CurrentMight += amount; UpdateStats(); }
+    public void IncreaseMagnet(float percentage) { if (percentage == 0) return; CurrentMagnet *= (1 + percentage); UpdateStats(); }
+    public void IncreaseCooldownReduction(float amount) { if (amount == 0) return; CurrentCooldownReduction += amount; CurrentCooldownReduction = Mathf.Clamp(CurrentCooldownReduction, 0f, 0.9f); UpdateStats(); }
+    public void IncreaseProjectileCount(int amount) { if (amount == 0) return; CurrentAdditionalProjectileCount += amount; UpdateStats(); }
+    public void IncreaseMaxHealth(float amount) { if (amount == 0) return; CurrentMaxHealth += amount; healthSystem.IncreaseMaxHealth(amount); OnPlayerMaxHealthChanged?.Invoke(); }
+    public void IncreaseArea(float percentage) { if (percentage == 0) return; CurrentAreaMultiplier *=(1+ percentage); UpdateStats(); }
+    public void IncreaseSpeed(float percentage) { if (percentage == 0) return; CurrentProjectileSpeed += percentage; UpdateStats(); }
+    public void IncreaseDuration(float percentage) { if (percentage == 0) return; CurrentDurationMultiplier += percentage; UpdateStats(); }
+    public void IncreaseMoveSpeed(float percentage) { if (percentage == 0) return; CurrentMoveSpeed *=(1+ percentage); UpdateStats(); }
+    public void IncreasePierceCount(int amount) { if (amount == 0) return; CurrentAdditionalPierceCount += amount; UpdateStats(); }
+    public void Heal(float amount) { healthSystem.Heal(amount); OnPlayerHealthChanged?.Invoke(); }
 
-    public void IncreaseMagnet(float percentage) {
-        if (percentage == 0) return;
-        CurrentMagnet=CurrentMagnet*(1+percentage);
-        UpdateStats();
-    }
-
-    public void IncreaseCooldownReduction(float amount) {
-        if (amount == 0) return;
-        CurrentCooldownReduction += amount;
-        // 限制最高冷却缩减，防止减到负数或者无限开火（例如上限 90%）
-        CurrentCooldownReduction = Mathf.Clamp(CurrentCooldownReduction, 0f, 0.9f);
-        UpdateStats();
-    }
-
-    public void IncreaseProjectileCount(int amount) {
-        if (amount == 0) return;
-        CurrentAdditionalProjectileCount += amount;
-        UpdateStats();
-    }
-
-    public void IncreaseMaxHealth(float amount) {
-        if (amount == 0) return;
-        CurrentMaxHealth += amount;
-        healthSystem.IncreaseMaxHealth(amount);
-        OnPlayerMaxHealthChanged?.Invoke();
-    }
-
-    public void IncreaseArea(float percentage) {
-        if (percentage == 0) return;
-        CurrentAreaMultiplier += percentage;
-        UpdateStats();
-    }
-
-    public void IncreaseSpeed(float percentage) {
-        if (percentage == 0) return;
-        CurrentProjectileSpeed += percentage;
-        UpdateStats();
-    }
-
-    public void IncreaseDuration(float percentage) {
-        if (percentage == 0) return;
-        CurrentDurationMultiplier += percentage;
-        UpdateStats();
-    }
-    public void IncreaseMoveSpeed(float percentage) {
-        if (percentage == 0) return;
-        CurrentMoveSpeed += percentage;
-        UpdateStats();
-    }
-
-    public void IncreasePierceCount(int amount) {
-        if (amount == 0) return;
-        CurrentAdditionalPierceCount += amount;
-        UpdateStats();
-    }
-
-    public void Heal(float amount) {
-        healthSystem.Heal(amount);
-        OnPlayerHealthChanged?.Invoke();
-    }
 
     public void ApplyPassiveItem(PassiveItemSO item) {
-        if (item == null) return;
+        if (item == null || item.LevelData == null || item.LevelData.Count == 0) return;
 
-        IncreaseMight(item.MightBonus);
-        IncreaseMagnet(item.MagnetBonus);
-        IncreaseCooldownReduction(item.CooldownReductionBonus);
-        IncreaseMoveSpeed(item.MoveSpeedBonus);
-        IncreaseArea(item.AreaBonus);
-        IncreaseSpeed(item.SpeedBonus);
-        IncreaseDuration(item.DurationBonus);
-        IncreaseProjectileCount(item.AmountBonus);
-        IncreasePierceCount(item.PierceBonus);
-        IncreaseMaxHealth(item.MaxHealthBonus);
+        // 默认应用第一级 (Index 0)
+        ApplyPassiveStats(item.LevelData[0]);
+    }
+
+    // 这个方法会被 UpgradeManager 调用
+    public void ApplyPassiveStats(PassiveStats stats) {
+        IncreaseMight(stats.mightBonus);
+        IncreaseMagnet(stats.magnetBonus);
+        IncreaseCooldownReduction(stats.cooldownReductionBonus);
+        IncreaseMoveSpeed(stats.moveSpeedBonus);
+        IncreaseArea(stats.areaBonus);
+        IncreaseSpeed(stats.speedBonus);
+        IncreaseDuration(stats.durationBonus);
+        IncreaseProjectileCount(stats.amountBonus);
+        IncreasePierceCount(stats.pierceBonus);
+        IncreaseMaxHealth(stats.maxHealthBonus);
+    }
+
+    public void AddGold(int amount) {
+        CurrentGold += amount;
+        OnGoldChanged?.Invoke();
     }
 
     private void UpdateStats() {
-        //玩家属性改变，就通知所有武器更新
         OnPlayerStatsChanged?.Invoke();
     }
 

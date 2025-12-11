@@ -16,11 +16,64 @@ MonoBehaviour:
   icon: {fileID: -1304853929, guid: 1f1c6d3d321d4604ca17999a1355debd, type: 3}
   weaponPrefab: {fileID: 2691911260539582018, guid: 3b1939e21541c8244abea770d99bd628, type: 3}
   bulletPrefab: {fileID: 3454881745925070163, guid: 1c957b743e5477b448f4bc4d2d186b83, type: 3}
-  damage: 30
-  cooldown: 4
-  speed: 10
-  duration: 5
-  count: 1
-  area: 1
-  pierce: 0
-  projectileInterval: 0
+  levelData:
+  - description: Shoot an arrow at the nearest enemy
+    damage: 30
+    cooldown: 5
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Damage increased by 10
+    damage: 40
+    cooldown: 5
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 1
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Pierce increased by 1
+    damage: 40
+    cooldown: 5
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 2
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Cooldowm decreased by 1s
+    damage: 40
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 1
+    area: 1
+    pierce: 2
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 1
+    damage: 40
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 2
+    area: 1
+    pierce: 2
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 2
+    damage: 40
+    cooldown: 4
+    speed: 10
+    duration: 3
+    count: 4
+    area: 1
+    pierce: 2
+    projectileInterval: 0.2
+    attackInterval: 0

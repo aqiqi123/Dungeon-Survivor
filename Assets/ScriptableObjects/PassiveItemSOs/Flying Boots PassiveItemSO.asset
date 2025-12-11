@@ -14,11 +14,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Flying Boots
   icon: {fileID: -313548114, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  mightBonus: 0
-  cooldownReductionBonus: 0
-  moveSpeedBonus: 0
-  maxHealthBonus: 0
-  areaBonus: 0
-  speedBonus: 0
-  durationBonus: 0
-  amountBonus: 0
+  levelData:
+  - description: Player move speed increased by 5%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.05
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player move speed increased by 10%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.1
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player move speed increased by 15%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.15
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player move speed increased by 15%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.15
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0

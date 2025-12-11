@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Warrior
   icon: {fileID: 1901032351, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  maxHealth: 100
+  startingWeapon: {fileID: 11400000, guid: 193db00689ba1b94b9bafd212913f884, type: 2}
+  maxHealth: 1000
   moveSpeed: 5
   might: 1
   magnet: 1

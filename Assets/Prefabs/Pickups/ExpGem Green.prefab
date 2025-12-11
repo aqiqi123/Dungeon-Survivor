@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   magnetDistance: 2
-  expAmount: 20
+  expAmount: 60

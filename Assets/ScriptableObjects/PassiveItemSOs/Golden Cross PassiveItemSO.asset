@@ -14,11 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Golden Cross
   icon: {fileID: -1026122933, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  mightBonus: 0
-  cooldownReductionBonus: 0
-  moveSpeedBonus: 0
-  maxHealthBonus: 0
-  areaBonus: 0
-  speedBonus: 0
-  durationBonus: 0
-  amountBonus: 0
+  levelData:
+  - description: All weapons pierce increased by 1
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 1
+  - description: All weapons pierce increased by 1
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 1
+  - description: All weapons pierce increased by 2
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 2

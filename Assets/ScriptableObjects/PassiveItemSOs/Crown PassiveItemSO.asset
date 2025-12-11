@@ -14,11 +14,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Crown
   icon: {fileID: 299418348, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
-  mightBonus: 0
-  cooldownReductionBonus: 0
-  moveSpeedBonus: 0
-  maxHealthBonus: 0
-  areaBonus: 0
-  speedBonus: 0
-  durationBonus: 0
-  amountBonus: 0
+  levelData:
+  - description: Player max health increased by 50
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 50
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player max health increased by 100
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 100
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player max health increased by 150
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 150
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player max health increased by 200
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 200
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player max health increased by 200
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 200
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player max health increased by 200
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 200
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0

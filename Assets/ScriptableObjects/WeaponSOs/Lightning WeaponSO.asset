@@ -16,11 +16,64 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a1ad557637ced8a49960bb8a9817cfee, type: 3}
   weaponPrefab: {fileID: 7729241119401269873, guid: 718caca3a4045da488ffc76bd09c9672, type: 3}
   bulletPrefab: {fileID: 958290112857454037, guid: e7f2c26259b61a04e975450db2a4048b, type: 3}
-  damage: 40
-  cooldown: 5
-  speed: 0
-  duration: 0.4
-  count: 1
-  area: 1
-  pierce: 0
-  projectileInterval: 0
+  levelData:
+  - description: Randomly deals damage to nearby enemies
+    damage: 30
+    cooldown: 5
+    speed: 0
+    duration: 0.4
+    count: 1
+    area: 1
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Cooldowm decreased by 1s
+    damage: 30
+    cooldown: 4
+    speed: 0
+    duration: 0.4
+    count: 1
+    area: 1
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 1
+    damage: 30
+    cooldown: 4
+    speed: 0
+    duration: 0.4
+    count: 2
+    area: 1
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Damage increased by 10
+    damage: 40
+    cooldown: 4
+    speed: 0
+    duration: 0.4
+    count: 2
+    area: 1
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Area increased by 2 times
+    damage: 40
+    cooldown: 4
+    speed: 0
+    duration: 0.4
+    count: 2
+    area: 2
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0
+  - description: Amount increased by 2
+    damage: 40
+    cooldown: 4
+    speed: 0
+    duration: 0.4
+    count: 4
+    area: 2
+    pierce: 0
+    projectileInterval: 0.2
+    attackInterval: 0

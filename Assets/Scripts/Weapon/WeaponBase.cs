@@ -4,10 +4,14 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    [SerializeField] private WeaponSO weaponData;
+    private WeaponSO weaponData;
+
+    public WeaponSO WeaponData=>weaponData;
 
     [SerializeField] protected LayerMask enemyLayer;
     [SerializeField] protected float detectRange;
+
+    private int currentLevelIndex = 0;
 
     public GameObject CurrentBulletPrefab { get; private set; }
     public float CurrentDamage {  get; private set; }
@@ -22,12 +26,26 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected float timer;
 
+    // 对外公开的初始化方法
+    public void Initialize(WeaponSO data) {
+        weaponData = data;
+        currentLevelIndex = 0; // 初始为 1级
+        RecalculateStats();
+    }
+
+    // 对外公开的升级方法
+    public void LevelUp(int newLevel) {
+        // 防止数组越界
+        if (weaponData != null && newLevel <= weaponData.LevelData.Count) {
+            currentLevelIndex = newLevel - 1; // 转换为索引
+            RecalculateStats();
+        }
+    }
+
     protected virtual void Start() {
         if (PlayerStats.Instance != null) {
             PlayerStats.Instance.OnPlayerStatsChanged += RecalculateStats;
         }
-
-        RecalculateStats();
     }
 
     protected virtual void OnDestroy() {
@@ -39,38 +57,39 @@ public abstract class WeaponBase : MonoBehaviour
     public void RecalculateStats() {
         if (weaponData == null || PlayerStats.Instance == null) return;
 
+        if (weaponData.LevelData == null || weaponData.LevelData.Count == 0) {
+            Debug.LogError($"WeaponSO {weaponData.name} 缺少等级数据！");
+            return;
+        }
+
+        if (currentLevelIndex >= weaponData.LevelData.Count) {
+            currentLevelIndex = weaponData.LevelData.Count - 1;
+        }
+
+        //提取当前等级的结构体数据
+        WeaponStats stats = weaponData.LevelData[currentLevelIndex];
+
+
         CurrentBulletPrefab = weaponData.BulletPrefab;
 
-        // 伤害 = 基础伤害 * 玩家力量系数 (Might)
-        CurrentDamage = weaponData.Damage * PlayerStats.Instance.CurrentMight;
+        CurrentDamage = stats.damage * PlayerStats.Instance.CurrentMight;
 
-        // 冷却 = 基础冷却 * (1 - 冷却缩减率)
-        // 例如：1秒冷却，缩减0.1(10%) -> 1 * 0.9 = 0.9秒
-        CurrentCooldown = weaponData.Cooldown * (1f - PlayerStats.Instance.CurrentCooldownReduction);
+        CurrentCooldown = stats.cooldown * (1f - PlayerStats.Instance.CurrentCooldownReduction);
 
-        // 数量 = 基础数量 + 玩家额外数量
-        CurrentCount = weaponData.Count + (int)PlayerStats.Instance.CurrentAdditionalProjectileCount;
+        CurrentCount = stats.count + (int)PlayerStats.Instance.CurrentAdditionalProjectileCount;
 
-        // 范围 = 基础范围 * 范围加成
-        CurrentArea = weaponData.Area * PlayerStats.Instance.CurrentAreaMultiplier;
+        CurrentArea = stats.area * PlayerStats.Instance.CurrentAreaMultiplier;
 
-        // 速度 = 基础速度 * 速度加成
-        CurrentSpeed = weaponData.Speed * PlayerStats.Instance.CurrentProjectileSpeed;
+        CurrentSpeed = stats.speed * PlayerStats.Instance.CurrentProjectileSpeed;
 
-        // 持续时间 = 基础时间 * 持续时间加成
-        CurrentDuration = weaponData.Duration * PlayerStats.Instance.CurrentDurationMultiplier;
+        CurrentDuration = stats.duration * PlayerStats.Instance.CurrentDurationMultiplier;
 
-        //穿透=基础穿透+穿透加成
-        CurrentPierce = weaponData.Pierce + PlayerStats.Instance.CurrentAdditionalPierceCount;
+        CurrentPierce = stats.pierce + PlayerStats.Instance.CurrentAdditionalPierceCount;
 
-        //子弹间隔时间
-        CurrentProjectileInterval = weaponData.ProjectileInterval;
+        CurrentProjectileInterval = stats.projectileInterval;
 
-        //持续性武器攻击间隔
-        CurrentAttackInterval = weaponData.AttackInterval;
+        CurrentAttackInterval = stats.attackInterval;
 
-        // 如果是光环类武器，这里可能需要更新一下 transform.localScale 来立刻反映范围变化
-        // 调用一个新方法，通知子类数值变了
         OnStatsUpdated();
     }
 
