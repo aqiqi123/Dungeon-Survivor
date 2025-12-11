@@ -21,13 +21,11 @@ public class EnemyStats : PoolableObject
     public override void OnSpawn() {
         InitializeStats();
 
-        // 重新监听死亡事件 (防止重复监听，先移除再添加)
-        healthSystem.OnDeath.RemoveListener(HandleDeath);
-        healthSystem.OnDeath.AddListener(HandleDeath);
+        healthSystem.OnDeath+= HandleDeath;
     }
 
     public override void OnDespawn() {
-        healthSystem.OnDeath.RemoveListener(HandleDeath);
+        healthSystem.OnDeath -= HandleDeath;
     }
 
     private void InitializeStats() {

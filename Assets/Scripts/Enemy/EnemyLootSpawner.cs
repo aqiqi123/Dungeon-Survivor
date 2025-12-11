@@ -14,11 +14,11 @@ public class EnemyLootSpawner : MonoBehaviour
     }
 
     private void OnEnable() {
-        healthSystem.OnDeath.AddListener(OnEnemyDeath);
+        healthSystem.OnDeath += OnEnemyDeath;
     }
 
     private void OnDisable() {
-        healthSystem.OnDeath.RemoveListener(OnEnemyDeath);
+        healthSystem.OnDeath -= OnEnemyDeath;
     }
 
     private void OnEnemyDeath() {
