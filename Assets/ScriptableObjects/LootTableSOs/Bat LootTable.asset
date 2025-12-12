@@ -15,4 +15,4 @@ MonoBehaviour:
   guaranteedDrop: {fileID: 4436730836489889745, guid: 2c7d002397403514c8f2cb4d5b42414b, type: 3}
   possibleDrops:
   - prefab: {fileID: 1779240548738187962, guid: 73669bd519603fe48bd0d5ae4cdaacc4, type: 3}
-    dropChance: 5
+    dropChance: 15

@@ -2748,7 +2748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite sheet 1_125
+      name: Exp Gem Gray
       rect:
         serializedVersion: 2
         x: 85
@@ -2906,6 +2906,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Exp Gem Blue: -1762222281
+      Exp Gem Gray: -1749490662
       Exp Gem Green: -2071999106
       bat: -1000409061
       crab: -25405437
@@ -2938,7 +2939,6 @@ TextureImporter:
       sprite sheet 1_118: -127574427
       sprite sheet 1_119: 145545546
       sprite sheet 1_12: 927881167
-      sprite sheet 1_125: -1749490662
       sprite sheet 1_127: -1735437566
       sprite sheet 1_13: -1583034641
       sprite sheet 1_130: 470400832

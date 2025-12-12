@@ -62,7 +62,5 @@ public class EnemyStats : PoolableObject
         CurrentDamage *= dmgMult;
 
         healthSystem.Initialize(CurrentMaxHealth);
-
-        transform.localScale = Vector3.one * (1f + loopCount * 0.05f);
     }
 }

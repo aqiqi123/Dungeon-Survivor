@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Ghost
   icon: {fileID: -849987998, guid: 76a8bfc0e7dc0194f98c4ca09d8d9e10, type: 3}
-  maxHealth: 70
+  maxHealth: 80
   moveSpeed: 2
   damage: 20

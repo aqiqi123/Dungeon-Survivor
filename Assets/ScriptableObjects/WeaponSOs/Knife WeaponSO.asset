@@ -19,61 +19,61 @@ MonoBehaviour:
   levelData:
   - description: Throw a knife towards the player
     damage: 30
-    cooldown: 4
+    cooldown: 3
     speed: 10
     duration: 3
     count: 1
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0
   - description: Cooldowm decreased by 0.5s
     damage: 30
-    cooldown: 3.5
+    cooldown: 2.5
     speed: 10
     duration: 3
     count: 1
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0
   - description: Amount increased by 1
     damage: 30
-    cooldown: 3.5
+    cooldown: 2.5
     speed: 10
     duration: 3
     count: 2
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0
   - description: Damage increased by 10
     damage: 40
-    cooldown: 3.5
+    cooldown: 2.5
     speed: 10
     duration: 3
     count: 2
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0
   - description: Cooldowm decreased by 0.5s
     damage: 40
-    cooldown: 3
+    cooldown: 2.5
     speed: 10
     duration: 3
     count: 2
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0
   - description: Amount increased by 2
     damage: 40
-    cooldown: 3
+    cooldown: 2.5
     speed: 10
     duration: 3
     count: 4
     area: 1
-    pierce: 1
+    pierce: 3
     projectileInterval: 0.2
     attackInterval: 0

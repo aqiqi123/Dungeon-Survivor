@@ -40,7 +40,9 @@ public class LevelManager : MonoBehaviour
     private void LevelUp() {
         currentLevel++;
 
-        experienceToNextLevel = Mathf.RoundToInt(experienceToNextLevel * experienceGrowthMultiplier);
+        if (currentLevel <= 22) {
+            experienceToNextLevel = Mathf.RoundToInt(experienceToNextLevel * experienceGrowthMultiplier);
+        }
 
         OnLevelUp?.Invoke(currentLevel);
     }

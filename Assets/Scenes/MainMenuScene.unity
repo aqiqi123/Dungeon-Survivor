@@ -1125,6 +1125,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c3d3d52ef6224c48ba1ceda08f40707, type: 2}
   - {fileID: 11400000, guid: 809accf58baa0744ebb243c299319551, type: 2}
   - {fileID: 11400000, guid: 41eb671075d79e844b63110ec6fffcec, type: 2}
+  - {fileID: 11400000, guid: 5f692db2133fc214e857de9eac292e3e, type: 2}
+  - {fileID: 11400000, guid: 29af3387f13331e44a4f3af0d20ca89f, type: 2}
+  - {fileID: 11400000, guid: 351e70b3f5dee1f4cb43b4f5a5d6667d, type: 2}
   buttonContainer: {fileID: 1905168088}
   characterSelectButton: {fileID: 163495680409055500, guid: ee134a8e29d240f4caa29987e19f8838, type: 3}
 --- !u!1 &1661898589

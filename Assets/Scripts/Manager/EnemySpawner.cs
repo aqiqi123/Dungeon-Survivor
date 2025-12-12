@@ -8,6 +8,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("生成范围")]
     [SerializeField] private Vector2 range;
 
+    [Header("全局限制")]
+    [SerializeField] private int maxGlobalEnemies = 300;
+
     [System.Serializable]
     public class Wave {
         public GameObject enemyPrefab;//生成哪个敌人
@@ -71,6 +74,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy(Wave wave) {
+        int currentCount=GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        if (currentCount >= maxGlobalEnemies) {
+            return;
+        }
+
         Vector3 spawnPos = GetRandomSpawnPosition(PlayerStats.Instance.transform.position);
 
         GameObject enemy = ObjectPoolManager.Instance.Spawn(wave.enemyPrefab, spawnPos, Quaternion.identity);
