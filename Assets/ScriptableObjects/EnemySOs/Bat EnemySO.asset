@@ -15,5 +15,5 @@ MonoBehaviour:
   enemyName: Bat
   icon: {fileID: -1000409061, guid: 76a8bfc0e7dc0194f98c4ca09d8d9e10, type: 3}
   maxHealth: 30
-  moveSpeed: 0.5
+  moveSpeed: 1
   damage: 10

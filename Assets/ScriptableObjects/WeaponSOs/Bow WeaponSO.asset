@@ -47,9 +47,9 @@ MonoBehaviour:
     pierce: 2
     projectileInterval: 0.2
     attackInterval: 0
-  - description: Cooldowm decreased by 1s
+  - description: Cooldowm decreased by 0.5s
     damage: 40
-    cooldown: 4
+    cooldown: 4.5
     speed: 10
     duration: 3
     count: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     attackInterval: 0
   - description: Amount increased by 1
     damage: 40
-    cooldown: 4
+    cooldown: 4.5
     speed: 10
     duration: 3
     count: 2
@@ -67,12 +67,12 @@ MonoBehaviour:
     pierce: 2
     projectileInterval: 0.2
     attackInterval: 0
-  - description: Amount increased by 2
+  - description: Amount increased by 1
     damage: 40
-    cooldown: 4
+    cooldown: 4.5
     speed: 10
     duration: 3
-    count: 4
+    count: 3
     area: 1
     pierce: 2
     projectileInterval: 0.2

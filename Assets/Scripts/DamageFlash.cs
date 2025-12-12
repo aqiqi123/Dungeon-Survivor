@@ -12,11 +12,12 @@ public class DamageFlash : MonoBehaviour
     [SerializeField] private SpriteRenderer sp;
 
     private Coroutine damageFlashCoroutine;
-
+    private Material materialInstance;
     private HealthSystem healthSystem;
 
     private void Awake() {
         healthSystem = GetComponent<HealthSystem>();
+        materialInstance = sp.material;
     }
 
     private void Start() {
@@ -33,6 +34,8 @@ public class DamageFlash : MonoBehaviour
         if (damageFlashCoroutine != null) {
             StopCoroutine(damageFlashCoroutine);
         }
+
+        ResetFlash();
     }
 
     private void OnDestroy() {
@@ -42,13 +45,15 @@ public class DamageFlash : MonoBehaviour
     }
 
     private void CallDamageFlash(float amount) {
+        if (!gameObject.activeInHierarchy) return;
+
         if (damageFlashCoroutine != null) StopCoroutine(damageFlashCoroutine);
 
         damageFlashCoroutine = StartCoroutine(DamageFlasher());
     }
 
     private IEnumerator DamageFlasher() {
-        sp.material.SetColor("_FlashColor", flashColor);
+        materialInstance.SetColor("_FlashColor", flashColor);
 
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
@@ -57,15 +62,15 @@ public class DamageFlash : MonoBehaviour
 
             currentFlashAmount=Mathf.Lerp(1f,0f,elapsedTime/flashTime);
 
-            sp.material.SetFloat("_FlashAmount",currentFlashAmount);
+            materialInstance.SetFloat("_FlashAmount",currentFlashAmount);
 
             yield return null;
         }
     }
 
     private void ResetFlash() {
-        if (sp.material != null) {
-            sp.material.SetFloat("_FlashAmount", 0f);
+        if (materialInstance != null) {
+            materialInstance.SetFloat("_FlashAmount", 0f);
         }
     }
 }

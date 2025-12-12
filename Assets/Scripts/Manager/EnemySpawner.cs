@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         if(currentWave.spawnedEnemyCount>= currentWave.enemiesPerWave) {
             currentWave.spawnedEnemyCount = 0;
 
-            if (currentWave.spawnInterval > 0.5f) {
+            if (currentWave.spawnInterval > 0.2f) {
                 currentWave.spawnInterval *= 0.9f;
             }
 

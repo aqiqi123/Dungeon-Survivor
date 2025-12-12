@@ -38,4 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat(MOVESPEED, moveDir.sqrMagnitude);
     }
+
+    public void SetVisual(Sprite image) {
+        visual.sprite = image;
+    }
 }

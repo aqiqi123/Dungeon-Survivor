@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     public event Action OnPlayerHealthChanged;
     public event Action OnGoldChanged;
 
-    [SerializeField] private CharacterSO characterData;
+    private CharacterSO characterData;
     public CharacterSO CharacterData => characterData;
 
     public float CurrentMaxHealth {  get; private set; }
@@ -36,8 +36,14 @@ public class PlayerStats : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        if (CharacterManager.SelectedCharacter != null) {
+            characterData= CharacterManager.SelectedCharacter;
+        }
+
         healthSystem = GetComponent<HealthSystem>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        playerMovement.SetVisual(characterData.Icon);
 
         InitializeStats();
     }

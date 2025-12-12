@@ -67,12 +67,12 @@ MonoBehaviour:
     pierce: 1
     projectileInterval: 0.2
     attackInterval: 0
-  - description: Amount increased by 2
+  - description: Amount increased by 1
     damage: 50
     cooldown: 4
     speed: 10
     duration: 3
-    count: 4
+    count: 3
     area: 1
     pierce: 1
     projectileInterval: 0.2

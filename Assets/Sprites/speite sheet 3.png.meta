@@ -1257,7 +1257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_54
+      name: old man
       rect:
         serializedVersion: 2
         x: 96
@@ -4434,6 +4434,7 @@ TextureImporter:
       mage: 1327659719
       morning star: -992084953
       necklace: -690087182
+      old man: 1064538629
       perfume: -1740296439
       priest: 1102026582
       shield: -265575237
@@ -4570,7 +4571,6 @@ TextureImporter:
       speite sheet 3_51: 26133981
       speite sheet 3_52: 543797865
       speite sheet 3_53: -1998310070
-      speite sheet 3_54: 1064538629
       speite sheet 3_56: -953523651
       speite sheet 3_57: -1987801203
       speite sheet 3_58: -1146253178

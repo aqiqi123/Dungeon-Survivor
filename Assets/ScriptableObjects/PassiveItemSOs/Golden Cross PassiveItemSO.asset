@@ -37,7 +37,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 1
-  - description: All weapons pierce increased by 2
+  - description: All weapons pierce increased by 1
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -47,4 +47,37 @@ MonoBehaviour:
     speedBonus: 0
     durationBonus: 0
     amountBonus: 0
-    pierceBonus: 2
+    pierceBonus: 1
+  - description: All weapons pierce increased by 1
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 1
+  - description: All weapons pierce increased by 1
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 1
+  - description: All weapons pierce increased by 1
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 1

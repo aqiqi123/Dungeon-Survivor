@@ -26,6 +26,28 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
+  - description: Player move speed increased by 5%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.05
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
+  - description: Player move speed increased by 5%
+    mightBonus: 0
+    magnetBonus: 0
+    cooldownReductionBonus: 0
+    moveSpeedBonus: 0.05
+    maxHealthBonus: 0
+    areaBonus: 0
+    speedBonus: 0
+    durationBonus: 0
+    amountBonus: 0
+    pierceBonus: 0
   - description: Player move speed increased by 10%
     mightBonus: 0
     magnetBonus: 0
@@ -37,11 +59,11 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Player move speed increased by 15%
+  - description: Player move speed increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
-    moveSpeedBonus: 0.15
+    moveSpeedBonus: 0.1
     maxHealthBonus: 0
     areaBonus: 0
     speedBonus: 0
