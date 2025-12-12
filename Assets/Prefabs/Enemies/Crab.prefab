@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4585476385364742812}
   - component: {fileID: 6645110869891338271}
   - component: {fileID: 2962115923981880194}
+  - component: {fileID: -4444838108830606333}
   m_Layer: 8
   m_Name: Crab
   m_TagString: Untagged
@@ -51,12 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de08615f2653714a9470e196531b43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3653153041394458159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +176,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootTable: {fileID: 11400000, guid: dd5897264f4fd6443ae0582891c67f57, type: 2}
+--- !u!114 &-4444838108830606333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413134535459970255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb6e51143af9fe47991a98b5daf7254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1.370351, g: 0, b: 0, a: 1}
+  flashTime: 0.2
+  sp: {fileID: 3176509852189333361}
 --- !u!1 &8899062786581832240
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +244,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: dfbc6fe30442ea14398e8499f80b4d10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

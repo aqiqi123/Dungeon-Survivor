@@ -33,7 +33,7 @@ public class PlayerHealthBarUI : MonoBehaviour
 
         fillImage.fillAmount=fillAmount;
 
-        if (fillAmount >=0.99f) {
+        if (fillAmount >=0.99999f) {
             canvas.enabled = false;
         } else {
             canvas.enabled = true;

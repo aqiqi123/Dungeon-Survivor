@@ -561,6 +561,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218635256}
   m_CullTransparentMesh: 1
+--- !u!1 &236358916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236358918}
+  - component: {fileID: 236358917}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &236358917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236358916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ecebd5ef08ac73240b8e667d52836d28, type: 2}
+--- !u!4 &236358918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236358916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241507058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1448,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3365,7 +3414,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: dfbc6fe30442ea14398e8499f80b4d10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4497,6 +4546,7 @@ GameObject:
   - component: {fileID: 1768286365}
   - component: {fileID: 1768286367}
   - component: {fileID: 1768286369}
+  - component: {fileID: 1768286370}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -4636,6 +4686,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 289968219}
+--- !u!114 &1768286370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768286362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb6e51143af9fe47991a98b5daf7254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 2, g: 0, b: 0, a: 1}
+  flashTime: 0.2
+  sp: {fileID: 1169477032}
 --- !u!1 &1809907632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,14 +5098,14 @@ MonoBehaviour:
     enemiesPerWave: 30
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 5116629688606356631, guid: 3d08e8747ac2fe745b208c885342a41a, type: 3}
-    spawnInterval: 1
+    spawnInterval: 0.5
     spawnTimer: 0
-    enemiesPerWave: 30
+    enemiesPerWave: 20
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 3595030349379072506, guid: 163fa52342a5192438351df9801555a7, type: 3}
     spawnInterval: 1
     spawnTimer: 0
-    enemiesPerWave: 30
+    enemiesPerWave: 20
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 7352603860389567573, guid: ccfd0278c55566f4e9dc21d946f8151b, type: 3}
     spawnInterval: 2
@@ -5053,6 +5118,12 @@ MonoBehaviour:
     enemiesPerWave: 5
     spawnedEnemyCount: 0
   waveNumber: 0
+  healthGrowth: 0.2
+  healthLimit: 6
+  speedGrowth: 0.05
+  speedLimit: 1.5
+  damageGrowth: 0.1
+  damageLimit: 3
 --- !u!1 &1979273832
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,3 +5667,4 @@ SceneRoots:
   - {fileID: 1768286363}
   - {fileID: 2100390784}
   - {fileID: 458494916}
+  - {fileID: 236358918}

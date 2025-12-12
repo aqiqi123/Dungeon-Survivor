@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd105aa2e59bd4f4ab6f14850670b531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 7f659fdb46672a344a91ec338f375089, type: 2}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  detectRange: 10
+  detectRange: 9

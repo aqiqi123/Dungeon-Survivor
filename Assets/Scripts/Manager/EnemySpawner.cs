@@ -21,6 +21,24 @@ public class EnemySpawner : MonoBehaviour
     public List<Wave> waves;
     public int waveNumber;//当前处于哪波
 
+    [Header("难度成长设置 (每循环一轮增加多少)")]
+    private int loopCount = 0;
+
+    [Tooltip("生命值成长率 (0.1 代表每轮增加 10%)")]
+    [SerializeField] private float healthGrowth = 0.2f;
+    [Tooltip("生命值最大倍率上限 (3 代表最多是基础血量的3倍)")]
+    [SerializeField] private float healthLimit = 5.0f;
+
+    [Tooltip("移速成长率")]
+    [SerializeField] private float speedGrowth = 0.05f;
+    [Tooltip("移速倍率上限")]
+    [SerializeField] private float speedLimit = 1.5f;
+
+    [Tooltip("伤害成长率")]
+    [SerializeField] private float damageGrowth = 0.1f;
+    [Tooltip("伤害倍率上限")]
+    [SerializeField] private float damageLimit = 3.0f;
+
     private Transform playerTransfrom;
 
     private void Update() {
@@ -43,7 +61,12 @@ public class EnemySpawner : MonoBehaviour
                 currentWave.spawnInterval *= 0.9f;
             }
 
-            waveNumber = (waveNumber + 1) % waves.Count;
+            waveNumber++;
+
+            if (waveNumber >= waves.Count) {
+                waveNumber = 0;
+                loopCount++;
+            }
         }
     }
 
@@ -51,6 +74,10 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPos = GetRandomSpawnPosition(PlayerStats.Instance.transform.position);
 
         GameObject enemy = ObjectPoolManager.Instance.Spawn(wave.enemyPrefab, spawnPos, Quaternion.identity);
+
+        if (enemy.TryGetComponent<EnemyStats>(out var stats)) {
+            stats.ApplyBuffs(loopCount, healthGrowth, healthLimit, speedGrowth, speedLimit, damageGrowth, damageLimit);
+        }
 
         wave.spawnedEnemyCount++;
     }

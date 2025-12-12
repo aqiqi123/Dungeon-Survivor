@@ -44,4 +44,26 @@ public class EnemyStats : PoolableObject
     private void HandleDeath() {
         ReturnToPool();
     }
+
+    public void ApplyBuffs(int loopCount, float healthGrowth, float healthLimit,
+                           float speedGrowth, float speedLimit,
+                           float damageGrowth, float damageLimit) {
+        if (loopCount <= 0) return;
+
+        float hpMult = 1f + (loopCount * healthGrowth);
+        float speedMult = 1f + (loopCount * speedGrowth);
+        float dmgMult = 1f + (loopCount * damageGrowth);
+
+        hpMult = Mathf.Min(hpMult, healthLimit);
+        speedMult = Mathf.Min(speedMult, speedLimit);
+        dmgMult = Mathf.Min(dmgMult, damageLimit);
+
+        CurrentMaxHealth *= hpMult;
+        CurrentMoveSpeed *= speedMult;
+        CurrentDamage *= dmgMult;
+
+        healthSystem.Initialize(CurrentMaxHealth);
+
+        transform.localScale = Vector3.one * (1f + loopCount * 0.05f);
+    }
 }

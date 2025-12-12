@@ -47,4 +47,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  detectRange: 18
+  detectRange: 9

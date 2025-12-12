@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4494168935193945291}
   - component: {fileID: 5379937342044193175}
   - component: {fileID: 3547971276430210641}
+  - component: {fileID: 7252707817283130096}
   m_Layer: 8
   m_Name: Spider
   m_TagString: Untagged
@@ -51,12 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de08615f2653714a9470e196531b43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8879396325996220839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +166,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootTable: {fileID: 11400000, guid: 9f6763a9bbb836d458780cd776fa1605, type: 2}
+--- !u!114 &7252707817283130096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116629688606356631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb6e51143af9fe47991a98b5daf7254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1.370351, g: 0, b: 0, a: 1}
+  flashTime: 0.2
+  sp: {fileID: 7960909576727381076}
 --- !u!1 &6658691722612213249
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +234,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: dfbc6fe30442ea14398e8499f80b4d10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
