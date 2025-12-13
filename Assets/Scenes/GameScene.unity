@@ -6202,7 +6202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {x: 18, y: 11}
   maxGlobalEnemies: 500
-  minSpawnInterval: 0.2
+  minSpawnInterval: 0.1
   spawnIntervalReductionFactor: 0.9
   waves:
   - enemyPrefab: {fileID: 3595030349379072506, guid: 9bf6f42977619b44a9fed71ae2c96fba, type: 3}
@@ -6241,12 +6241,12 @@ MonoBehaviour:
     enemiesPerWave: 15
     spawnedEnemyCount: 0
   waveNumber: 0
-  healthGrowth: 0.4
-  healthLimit: 2
+  healthGrowth: 0.5
+  healthLimit: 30
   speedGrowth: 0.1
-  speedLimit: 1.5
+  speedLimit: 2
   damageGrowth: 0.1
-  damageLimit: 1.5
+  damageLimit: 2.5
   sizeGrowth: 0.1
   sizeLimit: 2
 --- !u!1 &1979273832

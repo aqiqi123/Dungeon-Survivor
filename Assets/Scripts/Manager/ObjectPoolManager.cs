@@ -86,4 +86,31 @@ public class ObjectPoolManager : MonoBehaviour
             Destroy(obj);//如果归还时字典没了就销毁
         }
     }
+
+    /// <summary>
+    /// 清理所有对象池缓存，通常在返回主菜单或场景切换时调用
+    /// </summary>
+    public void ClearAllPools() {
+        foreach (var pool in poolDictionary.Values) {
+            while (pool.Count > 0) {
+                GameObject obj = pool.Dequeue();
+                if (obj != null) {
+                    Destroy(obj);
+                }
+            }
+        }
+
+        foreach (var parent in poolParents.Values) {
+            if (parent != null) {
+                Destroy(parent.gameObject);
+            }
+        }
+
+        poolDictionary.Clear();
+        poolParents.Clear();
+    }
+
+    private void OnDestroy() {
+        ClearAllPools();
+    }
 }

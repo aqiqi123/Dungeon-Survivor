@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitRadius: 1
   damageDelay: 0.07
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!58 &2923711421023016111
 CircleCollider2D:
   m_ObjectHideFlags: 0

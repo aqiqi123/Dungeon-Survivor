@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1084421998062583388}
   - component: {fileID: 7162591645299015285}
   - component: {fileID: 6833864123899923115}
-  - component: {fileID: 4546078458441393525}
   m_Layer: 0
   m_Name: Magnet Item
   m_TagString: Untagged
@@ -99,25 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  magnetDistance: 1
---- !u!95 &4546078458441393525
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4436730836489889745}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a31e15c5bb6881949ada6c65b5abb0ad, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  magnetDistance: 1.5

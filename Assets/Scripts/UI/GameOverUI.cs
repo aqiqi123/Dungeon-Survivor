@@ -30,6 +30,15 @@ public class GameOverUI : MonoBehaviour
 
     private void ReturnToMenu() {
         Time.timeScale = 1f;
+
+        // 清理对象池缓存
+        if (ObjectPoolManager.Instance != null) {
+            ObjectPoolManager.Instance.ClearAllPools();
+        }
+
+        // 清理所有 DOTween 动画
+        DG.Tweening.DOTween.KillAll();
+
         Loader.Load(Loader.Scene.MainMenuScene);
     }
 }

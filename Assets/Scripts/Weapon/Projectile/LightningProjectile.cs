@@ -10,6 +10,8 @@ public class LightningProjectile : ProjectileBase
     [Tooltip("伤害延迟时间（配合动画劈下来的那一帧）")]
     [SerializeField] private float damageDelay;
 
+    [SerializeField] private LayerMask enemyLayer;
+
     public override void Initialize(Vector2 direction, float speed, float damage, float duration,float attackInterval, int pierceCount) {
         base.Initialize(direction, 0, damage, duration,attackInterval, pierceCount);
 
@@ -25,7 +27,7 @@ public class LightningProjectile : ProjectileBase
     private IEnumerator StrikeProcess() {
         yield return new WaitForSeconds(damageDelay);
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius,enemyLayer);
 
         foreach (var hit in hits) {
             if (hit.TryGetComponent<IDamageable>(out var target)) {

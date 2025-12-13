@@ -25,4 +25,4 @@ MonoBehaviour:
   - prefab: {fileID: 3479299922363221201, guid: 616c602a9618df84eb9ab51efc5473ba, type: 3}
     dropChance: 10
   - prefab: {fileID: 4436730836489889745, guid: 85daf6db617abc846bb697a910a1ac49, type: 3}
-    dropChance: 10
+    dropChance: 15

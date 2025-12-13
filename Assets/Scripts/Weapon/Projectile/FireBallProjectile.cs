@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireBallProjectile : ProjectileBase
 {
     [SerializeField] private float explosionRadius=2f;
+    [SerializeField] private LayerMask enemyLayer;
 
     [Tooltip("爆炸时的特效Prefab")]
     [SerializeField] private GameObject explosionVfxPrefab;
@@ -22,7 +23,7 @@ public class FireBallProjectile : ProjectileBase
             vfx.transform.localScale = Vector3.one * currentAreaMultiplier;
         }
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius * currentAreaMultiplier);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius * currentAreaMultiplier,enemyLayer);
 
         foreach (var hit in hits) {
             if (hit.TryGetComponent<IDamageable>(out var enemy)) {
