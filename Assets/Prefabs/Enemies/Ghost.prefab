@@ -124,9 +124,10 @@ GameObject:
   - component: {fileID: 9211767379515040466}
   - component: {fileID: 1378534585681112983}
   - component: {fileID: 8786583376083527557}
+  - component: {fileID: 2101562007234090208}
   m_Layer: 8
   m_Name: Ghost
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,3 +302,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumberPrefab: {fileID: 3829955131241846737, guid: ab123c5ed767b044a9e8d2398fae2289, type: 3}
+--- !u!114 &2101562007234090208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030611633800110908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac19b7ab6c9537498f2e155a7f7e142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 256213489292473374, guid: be068dc94cb7fe9418612bd4137fdeef, type: 3}
+  shootInterval: 2
+  bulletSpeed: 7
+  bulletLifetime: 4
+  detectRange: 12

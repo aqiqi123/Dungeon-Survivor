@@ -46,6 +46,11 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("伤害倍率上限")]
     [SerializeField] private float damageLimit = 3.0f;
 
+    [Tooltip("体型成长率 (0.1 代表每轮增加 10%)")]
+    [SerializeField] private float sizeGrowth = 0.1f;
+    [Tooltip("体型最大倍率上限 (2 代表最多是原体型的2倍)")]
+    [SerializeField] private float sizeLimit = 2.0f;
+
     private Transform playerTransfrom;
     private PlayerStats playerStatsCache;
     private int currentActiveEnemies = 0;
@@ -103,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = ObjectPoolManager.Instance.Spawn(wave.enemyPrefab, spawnPos, Quaternion.identity);
 
         if (enemy.TryGetComponent<EnemyStats>(out var stats)) {
-            stats.ApplyBuffs(loopCount, healthGrowth, healthLimit, speedGrowth, speedLimit, damageGrowth, damageLimit);
+            stats.ApplyBuffs(loopCount, healthGrowth, healthLimit, speedGrowth, speedLimit, damageGrowth, damageLimit, sizeGrowth, sizeLimit);
         }
 
         currentActiveEnemies++;

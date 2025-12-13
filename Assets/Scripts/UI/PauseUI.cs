@@ -32,6 +32,10 @@ public class PauseUI : MonoBehaviour
     }
 
     private void ReturnToMenu() {
+        int runGold = PlayerStats.Instance.CurrentGold;
+
+        CharacterManager.AddTotalGold(runGold);
+
         Time.timeScale = 1f;
         Loader.Load(Loader.Scene.MainMenuScene);
     }

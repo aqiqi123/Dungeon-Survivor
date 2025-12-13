@@ -124,9 +124,10 @@ GameObject:
   - component: {fileID: 5730528263830566294}
   - component: {fileID: -6710379897485760261}
   - component: {fileID: -8291466327213897716}
+  - component: {fileID: 4288245452051824767}
   m_Layer: 8
   m_Name: Gray Mouse
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,3 +302,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumberPrefab: {fileID: 3829955131241846737, guid: ab123c5ed767b044a9e8d2398fae2289, type: 3}
+--- !u!114 &4288245452051824767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202159303875419705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fcc44a6ef689749a4b28bdaef1ddf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 256213489292473374, guid: be068dc94cb7fe9418612bd4137fdeef, type: 3}
+  shootInterval: 3
+  bulletSpeed: 7
+  bulletLifetime: 4
+  detectRange: 12
+  bulletCount: 3
+  spreadAngle: 50

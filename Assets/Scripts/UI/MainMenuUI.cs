@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
             characterSelectUI.OpenPanel();
         });
         quitButton.onClick.AddListener(() => {
-            Application.Quit();
+            Application.Quit();//在浏览器中运行时无效
         });
     }
 }

@@ -2265,7 +2265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite sheet 1_102
+      name: enemy projectile
       rect:
         serializedVersion: 2
         x: 102
@@ -2911,6 +2911,7 @@ TextureImporter:
       bat: -1000409061
       crab: -25405437
       cross: 327977888
+      enemy projectile: -2008355772
       ghost: -849987998
       gray mouse: 1776313739
       holy water: 1831650202
@@ -2921,7 +2922,6 @@ TextureImporter:
       sprite sheet 1_1: 1529413652
       sprite sheet 1_10: -1157606049
       sprite sheet 1_100: -1139518156
-      sprite sheet 1_102: -2008355772
       sprite sheet 1_103: 176664064
       sprite sheet 1_104: -685665791
       sprite sheet 1_105: -472854058

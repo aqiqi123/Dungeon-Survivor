@@ -1558,7 +1558,7 @@ MonoBehaviour:
   currentLevel: 1
   currentExperience: 0
   experienceToNextLevel: 80
-  experienceGrowthMultiplier: 1.15
+  experienceGrowthMultiplier: 1.18
   maxLevelLimit: 24
 --- !u!1 &513358061
 GameObject:
@@ -3603,6 +3603,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f659fdb46672a344a91ec338f375089, type: 2}
   - {fileID: 11400000, guid: 337f5ebff5fba504aadd5ab5c7b9cf29, type: 2}
   - {fileID: 11400000, guid: f26c693e05210ce4dbc0583f80c671ab, type: 2}
+  - {fileID: 11400000, guid: 7b8a81b7d0d7e5544abfd562ea1e6763, type: 2}
   allPassives:
   - {fileID: 11400000, guid: fc5847d8d3c5ac747a0dd530fbfcd7a9, type: 2}
   - {fileID: 11400000, guid: a74aa4e5580d8ec41a9aa1558b04deb5, type: 2}
@@ -6225,19 +6226,19 @@ MonoBehaviour:
     enemiesPerWave: 40
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 3595030349379072506, guid: 163fa52342a5192438351df9801555a7, type: 3}
-    spawnInterval: 0.6
+    spawnInterval: 0.8
     spawnTimer: 0
     enemiesPerWave: 50
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 7352603860389567573, guid: ccfd0278c55566f4e9dc21d946f8151b, type: 3}
-    spawnInterval: 1
+    spawnInterval: 0.8
     spawnTimer: 0
-    enemiesPerWave: 10
+    enemiesPerWave: 20
     spawnedEnemyCount: 0
   - enemyPrefab: {fileID: 9202159303875419705, guid: facebffabf92ad741b4e0239c4cfe19c, type: 3}
-    spawnInterval: 1
+    spawnInterval: 0.7
     spawnTimer: 0
-    enemiesPerWave: 5
+    enemiesPerWave: 15
     spawnedEnemyCount: 0
   waveNumber: 0
   healthGrowth: 0.4
@@ -6246,6 +6247,8 @@ MonoBehaviour:
   speedLimit: 1.5
   damageGrowth: 0.1
   damageLimit: 1.5
+  sizeGrowth: 0.1
+  sizeLimit: 2
 --- !u!1 &1979273832
 GameObject:
   m_ObjectHideFlags: 0

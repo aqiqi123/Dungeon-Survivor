@@ -67,7 +67,7 @@ MonoBehaviour:
     pierce: 0
     projectileInterval: 0.2
     attackInterval: 0.4
-  - description: Area increased by 2 times
+  - description: Area increased by 100%
     damage: 25
     cooldown: 7.5
     speed: 0

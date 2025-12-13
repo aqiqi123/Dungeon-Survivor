@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
 public abstract class PickupBase : PoolableObject {
+    //记录当前场景中所有激活的拾取物(全局注册表）
+    public static readonly List<PickupBase> ActivePickups = new List<PickupBase>();
+
     [Header("运动设置")]
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float magnetDistance; // 触发吸附的距离
@@ -11,6 +15,8 @@ public abstract class PickupBase : PoolableObject {
     protected Transform targetPlayer;
 
     public override void OnSpawn() {
+        // 注册到激活列表
+        ActivePickups.Add(this);
 
         originalMoveSpeed = moveSpeed;
 
@@ -22,29 +28,35 @@ public abstract class PickupBase : PoolableObject {
     }
 
     public override void OnDespawn() {
-        
+        //从激活列表中移除
+        ActivePickups.Remove(this);
+    }
+
+    //提供给道具磁铁的方法
+    public void ForceMagnetize() {
+        isMagnetized = true;
     }
 
     protected virtual void Update() {
         if (targetPlayer == null) return;
 
-        float distance = Vector3.Distance(transform.position, targetPlayer.position);
+        if (!isMagnetized) {
+            float distance = Vector3.Distance(transform.position, targetPlayer.position);
 
-        // 获取玩家当前的拾取范围加成
-        float pickupRange = magnetDistance * (PlayerStats.Instance != null ? PlayerStats.Instance.CurrentMagnet : 1f);
+            // 获取玩家当前的拾取范围加成
+            float pickupRange = magnetDistance * (PlayerStats.Instance != null ? PlayerStats.Instance.CurrentMagnet : 1f);
 
-        if (!isMagnetized && distance < pickupRange) {
-            isMagnetized = true;
+            if (distance < pickupRange) {
+                isMagnetized = true;
+            }
         }
 
         //飞向玩家
         if (isMagnetized) {
-            // 越飞越快的效果
             transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
-            moveSpeed += 10f * Time.deltaTime;
+            moveSpeed += 20f * Time.deltaTime;
 
-            //判定拾取成功
-            if (distance < 0.5f) {
+            if (Vector3.Distance(transform.position, targetPlayer.position) < 0.5f) {
                 TriggerPickup();
             }
         }

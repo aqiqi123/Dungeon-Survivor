@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: -2704021440547221267}
   m_Layer: 8
   m_Name: Red Bat
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

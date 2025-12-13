@@ -19,8 +19,10 @@ MonoBehaviour:
   - prefab: {fileID: 4436730836489889745, guid: b8b431d6423e881419e1b9dd3ceec5d1, type: 3}
     dropChance: 30
   - prefab: {fileID: 1779240548738187962, guid: 73669bd519603fe48bd0d5ae4cdaacc4, type: 3}
-    dropChance: 20
+    dropChance: 30
   - prefab: {fileID: 4436730836489889745, guid: b8d84b877b166aa49958f78a7ae0b80c, type: 3}
     dropChance: 10
   - prefab: {fileID: 3479299922363221201, guid: 616c602a9618df84eb9ab51efc5473ba, type: 3}
+    dropChance: 10
+  - prefab: {fileID: 4436730836489889745, guid: 85daf6db617abc846bb697a910a1ac49, type: 3}
     dropChance: 10

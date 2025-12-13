@@ -10,6 +10,7 @@ public class EnemyStats : PoolableObject
     public float CurrentMaxHealth {  get; private set; }
     public float CurrentMoveSpeed { get; private set; }
     public float CurrentDamage {  get; private set; }
+    public float CurrentSizeMultiplier { get; private set; } = 1f;
 
     private HealthSystem healthSystem;
 
@@ -19,6 +20,8 @@ public class EnemyStats : PoolableObject
 
     public override void OnSpawn() {
         InitializeStats();
+        transform.localScale = Vector3.one;
+        CurrentSizeMultiplier = 1f;
 
         healthSystem.OnDeath+= HandleDeath;
     }
@@ -50,20 +53,26 @@ public class EnemyStats : PoolableObject
 
     public void ApplyBuffs(int loopCount, float healthGrowth, float healthLimit,
                            float speedGrowth, float speedLimit,
-                           float damageGrowth, float damageLimit) {
+                           float damageGrowth, float damageLimit,
+                           float sizeGrowth, float sizeLimit) {
         if (loopCount <= 0) return;
 
         float hpMult = 1f + (loopCount * healthGrowth);
         float speedMult = 1f + (loopCount * speedGrowth);
         float dmgMult = 1f + (loopCount * damageGrowth);
+        float sizeMult = 1f + (loopCount * sizeGrowth);
 
         hpMult = Mathf.Min(hpMult, healthLimit);
         speedMult = Mathf.Min(speedMult, speedLimit);
         dmgMult = Mathf.Min(dmgMult, damageLimit);
+        sizeMult = Mathf.Min(sizeMult, sizeLimit);
 
         CurrentMaxHealth *= hpMult;
         CurrentMoveSpeed *= speedMult;
         CurrentDamage *= dmgMult;
+        CurrentSizeMultiplier = sizeMult;
+
+        transform.localScale = Vector3.one * sizeMult;
 
         healthSystem.Initialize(CurrentMaxHealth);
     }

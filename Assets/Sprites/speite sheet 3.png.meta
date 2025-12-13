@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_16
+      name: amulet
       rect:
         serializedVersion: 2
         x: 64
@@ -585,7 +585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speite sheet 3_22
+      name: magent
       rect:
         serializedVersion: 2
         x: 160
@@ -4417,6 +4417,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      amulet: 1441097656
       animal trap: 1935820583
       assassin: -144189684
       axe: -207395235
@@ -4432,6 +4433,7 @@ TextureImporter:
       health potion: -614740339
       knife: -1324280842
       mage: 1327659719
+      magent: 1566962949
       morning star: -992084953
       necklace: -690087182
       old man: 1064538629
@@ -4504,7 +4506,6 @@ TextureImporter:
       speite sheet 3_157: 2018791619
       speite sheet 3_158: 1606119765
       speite sheet 3_159: -1398719308
-      speite sheet 3_16: 1441097656
       speite sheet 3_160: -2039394685
       speite sheet 3_161: -2080950679
       speite sheet 3_162: -400535459
@@ -4547,7 +4548,6 @@ TextureImporter:
       speite sheet 3_202: 490669472
       speite sheet 3_203: 688458272
       speite sheet 3_21: -1338952611
-      speite sheet 3_22: 1566962949
       speite sheet 3_23: 681801730
       speite sheet 3_3: -488729171
       speite sheet 3_30: 981672632

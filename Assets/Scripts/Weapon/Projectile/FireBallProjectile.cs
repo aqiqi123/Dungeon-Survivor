@@ -9,12 +9,20 @@ public class FireBallProjectile : ProjectileBase
     [Tooltip("爆炸时的特效Prefab")]
     [SerializeField] private GameObject explosionVfxPrefab;
 
+    private float currentAreaMultiplier = 1f;
+
+    public override void UpdateScale(float areaMultiplier) {
+        base.UpdateScale(areaMultiplier);
+        currentAreaMultiplier = areaMultiplier;
+    }
+
     protected override void OnHit(IDamageable target) {
         if (explosionVfxPrefab != null) {
             GameObject vfx = ObjectPoolManager.Instance.Spawn(explosionVfxPrefab, transform.position, Quaternion.identity);
+            vfx.transform.localScale = Vector3.one * currentAreaMultiplier;
         }
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius * currentAreaMultiplier);
 
         foreach (var hit in hits) {
             if (hit.TryGetComponent<IDamageable>(out var enemy)) {
@@ -29,6 +37,6 @@ public class FireBallProjectile : ProjectileBase
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, explosionRadius * currentAreaMultiplier);
     }
 }

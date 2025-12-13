@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc4767c7aa256324498a69d5b8f0498e, type: 3}
-  m_Name: Crown PassiveItemSO
+  m_Name: Amulet PassiveItemSO
   m_EditorClassIdentifier: 
-  itemName: Crown
-  icon: {fileID: 299418348, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
+  itemName: Amulet
+  icon: {fileID: 1441097656, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   levelData:
   - description: Player max health increased by 50
     mightBonus: 0
