@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 2290066212973858012}
   - component: {fileID: 4726161944234043785}
   - component: {fileID: -3749166475037826363}
+  - component: {fileID: -800565304519388314}
   m_Layer: 8
   m_Name: Mouse
   m_TagString: Enemy
@@ -287,3 +288,16 @@ MonoBehaviour:
   flashColor: {r: 1.370351, g: 0, b: 0, a: 1}
   flashTime: 0.2
   sp: {fileID: 485472698559058964}
+--- !u!114 &-800565304519388314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352603860389567573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f96ffca4a4f1d24784298a5d16acd3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNumberPrefab: {fileID: 3829955131241846737, guid: ab123c5ed767b044a9e8d2398fae2289, type: 3}

@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int currentExperience = 0;
     [SerializeField] private int experienceToNextLevel = 100;
     [SerializeField] private float experienceGrowthMultiplier = 1.2f;
+    [SerializeField] private int maxLevelLimit = 24;
 
     //参数：当前经验、升级所需总经验、当前等级
     public event Action<int,int,int> OnExperienceChanged;
@@ -40,7 +41,8 @@ public class LevelManager : MonoBehaviour
     private void LevelUp() {
         currentLevel++;
 
-        if (currentLevel <= 22) {
+        //到达一定等级后不再增加升级所需经验
+        if (currentLevel <= maxLevelLimit) {
             experienceToNextLevel = Mathf.RoundToInt(experienceToNextLevel * experienceGrowthMultiplier);
         }
 

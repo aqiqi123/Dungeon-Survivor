@@ -28,6 +28,11 @@ public abstract class ProjectileBase : PoolableObject {
         Move();
     }
 
+    //让武器修改投射物的大小
+    public virtual void UpdateScale(float areaMultiplier) {
+        transform.localScale = Vector3.one * areaMultiplier;
+    }
+
     protected virtual void Move() {
         transform.Translate(Vector3.up * speed * Time.deltaTime);
     }

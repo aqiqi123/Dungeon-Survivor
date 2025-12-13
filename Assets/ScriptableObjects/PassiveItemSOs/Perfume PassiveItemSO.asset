@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Perfume
   icon: {fileID: -1740296439, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   levelData:
-  - description: Black hole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Black hole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Black hole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Black hole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Black hole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Blackhole area increased by 10%
+  - description: All weapon area increased by 10%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0

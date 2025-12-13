@@ -20,20 +20,9 @@ public class BlackHoleWeapon : WeaponBase {
             GameObject bulletObj = ObjectPoolManager.Instance.Spawn(CurrentBulletPrefab, transform.position, Quaternion.identity);
             currentActiveBlackHole = bulletObj;
 
-            if (bulletObj.TryGetComponent<BlackHoleProjectile>(out var projectile)) {
+            if (bulletObj.TryGetComponent<ProjectileBase>(out var projectile)) {
                 projectile.Initialize(Vector2.zero, 0, CurrentDamage, CurrentDuration, CurrentAttackInterval, 999);
 
-                projectile.UpdateScale(CurrentArea);
-            }
-        }
-    }
-
-    // 当玩家获得增加范围的被动道具时，需要实时更新当前场上大蒜的大小
-    protected override void OnStatsUpdated() {
-        base.OnStatsUpdated();
-
-        if (currentActiveBlackHole != null && currentActiveBlackHole.activeInHierarchy) {
-            if (currentActiveBlackHole.TryGetComponent<BlackHoleProjectile>(out var projectile)) {
                 projectile.UpdateScale(CurrentArea);
             }
         }

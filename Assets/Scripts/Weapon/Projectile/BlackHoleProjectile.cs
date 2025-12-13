@@ -8,10 +8,6 @@ public class BlackHoleProjectile : ProjectileBase
     // 记录每个敌人下一次能受到伤害的时间点 <敌人ID, 下次受伤时间>
     private Dictionary<int, float> enemyHitTimers = new Dictionary<int, float>();
 
-    public void UpdateScale(float areaMultiplier) {
-        transform.localScale = Vector3.one * areaMultiplier;
-    }
-
     protected override void Move() {
         if (PlayerStats.Instance == null) return;
 

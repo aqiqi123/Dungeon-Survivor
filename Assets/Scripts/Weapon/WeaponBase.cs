@@ -151,7 +151,10 @@ public abstract class WeaponBase : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 
-    protected virtual void OnStatsUpdated() { }
+    // 当武器属性更新时调用，子类可重写此方法来更新场上已存在的子弹
+    protected virtual void OnStatsUpdated() {
+        // 默认实现为空，由子类根据需要重写
+    }
 
     protected abstract void Attack();
 }

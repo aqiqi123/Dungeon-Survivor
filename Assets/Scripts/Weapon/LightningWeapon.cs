@@ -31,6 +31,7 @@ public class LightningWeapon : WeaponBase {
 
             if (lightningObj.TryGetComponent<ProjectileBase>(out var projectile)) {
                 projectile.Initialize(Vector2.zero, 0, CurrentDamage, CurrentDuration,CurrentAttackInterval,CurrentPierce);
+                projectile.UpdateScale(CurrentArea);
             }
         }
     }

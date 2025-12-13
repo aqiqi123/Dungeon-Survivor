@@ -1559,6 +1559,7 @@ MonoBehaviour:
   currentExperience: 0
   experienceToNextLevel: 80
   experienceGrowthMultiplier: 1.15
+  maxLevelLimit: 24
 --- !u!1 &513358061
 GameObject:
   m_ObjectHideFlags: 0
@@ -6200,6 +6201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {x: 18, y: 11}
   maxGlobalEnemies: 500
+  minSpawnInterval: 0.2
+  spawnIntervalReductionFactor: 0.9
   waves:
   - enemyPrefab: {fileID: 3595030349379072506, guid: 9bf6f42977619b44a9fed71ae2c96fba, type: 3}
     spawnInterval: 0.6

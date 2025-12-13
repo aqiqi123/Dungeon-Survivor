@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance { get; private set; }
+
     [Header("生成范围")]
     [SerializeField] private Vector2 range;
 
     [Header("全局限制")]
     [SerializeField] private int maxGlobalEnemies = 300;
+    [SerializeField] private float minSpawnInterval = 0.2f;
+    [SerializeField] private float spawnIntervalReductionFactor = 0.9f;//每波结束后生成间隔的缩减系数
 
     [System.Serializable]
     public class Wave {
@@ -43,10 +47,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float damageLimit = 3.0f;
 
     private Transform playerTransfrom;
+    private PlayerStats playerStatsCache;
+    private int currentActiveEnemies = 0;
+
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update() {
-        if (PlayerStats.Instance == null) return;
-        playerTransfrom=PlayerStats.Instance.transform;
+        if (playerStatsCache == null) {
+            playerStatsCache = PlayerStats.Instance;
+            if (playerStatsCache == null) return;
+        }
+
+        if (playerTransfrom == null) {
+            playerTransfrom = playerStatsCache.transform;
+        }
 
         Wave currentWave = waves[waveNumber];
 
@@ -60,8 +80,8 @@ public class EnemySpawner : MonoBehaviour
         if(currentWave.spawnedEnemyCount>= currentWave.enemiesPerWave) {
             currentWave.spawnedEnemyCount = 0;
 
-            if (currentWave.spawnInterval > 0.2f) {
-                currentWave.spawnInterval *= 0.9f;
+            if (currentWave.spawnInterval >minSpawnInterval) {
+                currentWave.spawnInterval *= spawnIntervalReductionFactor;
             }
 
             waveNumber++;
@@ -74,13 +94,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemy(Wave wave) {
-        int currentCount=GameObject.FindGameObjectsWithTag("Enemy").Length;
-
-        if (currentCount >= maxGlobalEnemies) {
+        if (currentActiveEnemies >= maxGlobalEnemies) {
             return;
         }
 
-        Vector3 spawnPos = GetRandomSpawnPosition(PlayerStats.Instance.transform.position);
+        Vector3 spawnPos = GetRandomSpawnPosition(playerTransfrom.position);
 
         GameObject enemy = ObjectPoolManager.Instance.Spawn(wave.enemyPrefab, spawnPos, Quaternion.identity);
 
@@ -88,6 +106,7 @@ public class EnemySpawner : MonoBehaviour
             stats.ApplyBuffs(loopCount, healthGrowth, healthLimit, speedGrowth, speedLimit, damageGrowth, damageLimit);
         }
 
+        currentActiveEnemies++;
         wave.spawnedEnemyCount++;
     }
 
@@ -114,11 +133,17 @@ public class EnemySpawner : MonoBehaviour
         return (Vector2)centerPos + new Vector2(x, y);
     }
 
+    // 敌人被销毁时调用
+    public void OnEnemyDespawned() {
+        currentActiveEnemies--;
+        if (currentActiveEnemies < 0) currentActiveEnemies = 0;
+    }
+
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
 
-        Vector3 center = Application.isPlaying && PlayerStats.Instance != null ?
-                         PlayerStats.Instance.transform.position : transform.position;
+        Vector3 center = Application.isPlaying && playerStatsCache != null ?
+                         playerStatsCache.transform.position : transform.position;
 
         Gizmos.DrawWireCube(center, range * 2);
     }

@@ -18,6 +18,7 @@ public class KnifeWeapon : WeaponBase {
 
                 if (bulletObj.TryGetComponent<ProjectileBase>(out var projectile)) {
                     projectile.Initialize(bulletDir, CurrentSpeed, CurrentDamage, CurrentDuration,CurrentAttackInterval, CurrentPierce);
+                    projectile.UpdateScale(CurrentArea);
                 }
             }
 

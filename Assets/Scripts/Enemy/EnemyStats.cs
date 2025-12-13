@@ -40,7 +40,11 @@ public class EnemyStats : PoolableObject
         healthSystem.Initialize(CurrentMaxHealth);
     }
 
+    // ¥¶¿Ìµ–»ÀÀ¿Õˆ
     private void HandleDeath() {
+        if (EnemySpawner.Instance != null) {
+            EnemySpawner.Instance.OnEnemyDespawned();
+        }
         ReturnToPool();
     }
 

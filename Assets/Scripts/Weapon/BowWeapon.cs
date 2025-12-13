@@ -21,6 +21,7 @@ public class BowWeapon : WeaponBase {
 
                     if (bulletObj.TryGetComponent<ProjectileBase>(out var projectile)) {
                         projectile.Initialize(dir, CurrentSpeed, CurrentDamage, CurrentDuration,CurrentAttackInterval, CurrentPierce);
+                        projectile.UpdateScale(CurrentArea);
                     }
                 }
             }
