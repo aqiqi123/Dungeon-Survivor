@@ -70,7 +70,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 1
     pierceBonus: 0
-  - description: All weapons fire one additional bullet
+  - description: All weapons fire two additional bullet
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -79,5 +79,5 @@ MonoBehaviour:
     areaBonus: 0
     speedBonus: 0
     durationBonus: 0
-    amountBonus: 1
+    amountBonus: 2
     pierceBonus: 0

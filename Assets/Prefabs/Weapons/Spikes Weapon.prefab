@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2325577850260119690}
-  - component: {fileID: 5462036893323248711}
+  - component: {fileID: 6528982254659093312}
   m_Layer: 0
   m_Name: Spikes Weapon
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5462036893323248711
+--- !u!114 &6528982254659093312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7729241119401269873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd105aa2e59bd4f4ab6f14850670b531, type: 3}
+  m_Script: {fileID: 11500000, guid: 380e5dc97c91e974c85d678f77bf7ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLayer:

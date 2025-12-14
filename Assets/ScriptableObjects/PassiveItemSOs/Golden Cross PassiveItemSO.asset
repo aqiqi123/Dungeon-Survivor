@@ -70,7 +70,7 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 1
-  - description: All weapons pierce increased by 1
+  - description: All weapons pierce increased by 2
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
@@ -80,4 +80,4 @@ MonoBehaviour:
     speedBonus: 0
     durationBonus: 0
     amountBonus: 0
-    pierceBonus: 1
+    pierceBonus: 2

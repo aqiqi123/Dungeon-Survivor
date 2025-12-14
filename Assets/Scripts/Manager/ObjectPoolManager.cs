@@ -88,7 +88,7 @@ public class ObjectPoolManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 清理所有对象池缓存，通常在返回主菜单或场景切换时调用
+    /// 清理所有对象池缓存，在返回主菜单或场景切换时调用
     /// </summary>
     public void ClearAllPools() {
         foreach (var pool in poolDictionary.Values) {

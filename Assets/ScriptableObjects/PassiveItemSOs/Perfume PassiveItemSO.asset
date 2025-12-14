@@ -70,13 +70,13 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: All weapon area increased by 10%
+  - description: All weapon area increased by 20%
     mightBonus: 0
     magnetBonus: 0
     cooldownReductionBonus: 0
     moveSpeedBonus: 0
     maxHealthBonus: 0
-    areaBonus: 0.1
+    areaBonus: 0.2
     speedBonus: 0
     durationBonus: 0
     amountBonus: 0

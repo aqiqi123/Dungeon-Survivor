@@ -59,8 +59,8 @@ MonoBehaviour:
     durationBonus: 0
     amountBonus: 0
     pierceBonus: 0
-  - description: Player might increased by 0.5
-    mightBonus: 0.5
+  - description: Player might increased by 1
+    mightBonus: 1
     magnetBonus: 0
     cooldownReductionBonus: 0
     moveSpeedBonus: 0

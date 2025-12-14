@@ -1128,6 +1128,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f692db2133fc214e857de9eac292e3e, type: 2}
   - {fileID: 11400000, guid: 29af3387f13331e44a4f3af0d20ca89f, type: 2}
   - {fileID: 11400000, guid: 351e70b3f5dee1f4cb43b4f5a5d6667d, type: 2}
+  - {fileID: 11400000, guid: 309917ca93b9eaf4c814cf1b09bd0449, type: 2}
   buttonContainer: {fileID: 1905168088}
   characterSelectButton: {fileID: 163495680409055500, guid: ee134a8e29d240f4caa29987e19f8838, type: 3}
 --- !u!1 &1661898589

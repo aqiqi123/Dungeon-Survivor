@@ -15,12 +15,12 @@ MonoBehaviour:
   guaranteedDrop: {fileID: 4436730836489889745, guid: 2c7d002397403514c8f2cb4d5b42414b, type: 3}
   possibleDrops:
   - prefab: {fileID: 3479299922363221201, guid: f710d293cab7a384faaecf03a07f8797, type: 3}
-    dropChance: 20
+    dropChance: 60
   - prefab: {fileID: 4436730836489889745, guid: b8b431d6423e881419e1b9dd3ceec5d1, type: 3}
-    dropChance: 40
+    dropChance: 60
   - prefab: {fileID: 1779240548738187962, guid: 73669bd519603fe48bd0d5ae4cdaacc4, type: 3}
-    dropChance: 20
+    dropChance: 15
   - prefab: {fileID: 4436730836489889745, guid: b8d84b877b166aa49958f78a7ae0b80c, type: 3}
     dropChance: 20
   - prefab: {fileID: 4436730836489889745, guid: 85daf6db617abc846bb697a910a1ac49, type: 3}
-    dropChance: 15
+    dropChance: 5
