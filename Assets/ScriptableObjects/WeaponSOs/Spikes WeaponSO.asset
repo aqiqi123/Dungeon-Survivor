@@ -73,7 +73,7 @@ MonoBehaviour:
     speed: 0
     duration: 0.4
     count: 6
-    area: 2
+    area: 1
     pierce: 0
     projectileInterval: 0.2
     attackInterval: 0

@@ -3614,8 +3614,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -635846509
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1 &1067313731
 GameObject:
@@ -4162,9 +4162,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -635846509
+  m_SortingLayer: 1
+  m_SortingOrder: 100
   m_Sprite: {fileID: 1901032351, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6472,7 +6472,7 @@ MonoBehaviour:
     spawnedEnemyCount: 0
   waveNumber: 0
   healthGrowth: 2
-  healthLimit: 20
+  healthLimit: 22
   speedGrowth: 0.1
   speedLimit: 2
   damageGrowth: 0.1
