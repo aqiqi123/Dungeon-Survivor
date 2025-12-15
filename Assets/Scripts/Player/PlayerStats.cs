@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public float CurrentAreaMultiplier {  get; private set; }
     public int CurrentAdditionalPierceCount { get; private set; }
     public int CurrentGold { get; private set; }
+    public float CurrentLuck { get; private set; }
 
     private HealthSystem healthSystem;
     private PlayerMovement playerMovement;
@@ -63,6 +64,7 @@ public class PlayerStats : MonoBehaviour
         CurrentDurationMultiplier = characterData.DurationMultiplier;
         CurrentAreaMultiplier = characterData.AreaMultiplier;
         CurrentAdditionalPierceCount = characterData.AdditionalPierceCount;
+        CurrentLuck=characterData.Luck;
 
         healthSystem.Initialize(CurrentMaxHealth);
     }
@@ -78,6 +80,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseDuration(float percentage) { if (percentage == 0) return; CurrentDurationMultiplier += percentage; UpdateStats(); }
     public void IncreaseMoveSpeed(float percentage) { if (percentage == 0) return; CurrentMoveSpeed *=(1+ percentage); UpdateStats(); }
     public void IncreasePierceCount(int amount) { if (amount == 0) return; CurrentAdditionalPierceCount += amount; UpdateStats(); }
+    public void IncreaseLuck(float amount) { if (amount == 0) return; CurrentLuck += amount; UpdateStats(); }
     public void Heal(float amount) { healthSystem.Heal(amount); OnPlayerHealthChanged?.Invoke(); }
 
 
@@ -100,6 +103,7 @@ public class PlayerStats : MonoBehaviour
         IncreaseProjectileCount(stats.amountBonus);
         IncreasePierceCount(stats.pierceBonus);
         IncreaseMaxHealth(stats.maxHealthBonus);
+        IncreaseLuck(stats.luckBonus);
     }
 
     public void AddGold(int amount) {
