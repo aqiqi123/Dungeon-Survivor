@@ -7,7 +7,7 @@ public class MagentItem : PickupBase, IPickupable
     public void OnPickUp() {
         foreach (var pickup in ActivePickups)
         {
-            if (pickup != null && pickup != this && pickup is MagentItem)
+            if (pickup != null && pickup != this && pickup is not MagentItem)
             {
                 pickup.ForceMagnetize();
             }
