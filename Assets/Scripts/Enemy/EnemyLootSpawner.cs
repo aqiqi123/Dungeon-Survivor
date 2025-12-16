@@ -29,7 +29,7 @@ public class EnemyLootSpawner : MonoBehaviour
         }
 
         foreach (var item in lootTable.possibleDrops) {
-            if (Random.Range(0f, 100f) <= item.dropChance) {
+            if (Random.Range(0f, 100f) <= item.dropChance+PlayerStats.Instance.CurrentLuck) {
                 //¼ÓÆ«ÒÆ£¬·ÀÖ¹ÖØµþ
                 Vector3 offset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 SpawnLoot(item.prefab, transform.position + offset);
