@@ -17,7 +17,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7729241119401269873, guid: 456da2e2388ca3246a7814a1e487ead2, type: 3}
   bulletPrefab: {fileID: 958290112857454037, guid: 3460009984c21d84495ea24bfb022086, type: 3}
   levelData:
-  - description: Generate spikes at the nearest enemy
+  - description: Randomly deals damage to nearby enemies
     damage: 30
     cooldown: 5
     speed: 0

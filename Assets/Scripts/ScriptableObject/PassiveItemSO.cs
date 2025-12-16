@@ -15,7 +15,6 @@ public struct PassiveStats {
     public float durationBonus;
     public int amountBonus;
     public int pierceBonus;
-    public float luckBonus;
 }
 
 [CreateAssetMenu(fileName = "PassiveItemSO", menuName = "SOs/PassiveItem")]

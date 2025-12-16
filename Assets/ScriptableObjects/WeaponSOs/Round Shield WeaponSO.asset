@@ -17,7 +17,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 859392484345135443, guid: 79bbd9d6aed7b524ba0141a4b1cb2e60, type: 3}
   bulletPrefab: {fileID: 3952989912738169477, guid: bb0eba902161ea042a8f4505e9493e41, type: 3}
   levelData:
-  - description: Throw a boomerang to the nearest enemy
+  - description: Throw a boomerang at nearest enemy
     damage: 20
     cooldown: 5
     speed: 20

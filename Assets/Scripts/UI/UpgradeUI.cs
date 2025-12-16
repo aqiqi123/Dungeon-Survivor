@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class UpgradeUI : MonoBehaviour {
     [Header("容器引用")]
-    [SerializeField] private GameObject panelContainer;
+    [SerializeField] private GameObject panelContainer; // 整个黑色半透明背景
 
     [Header("选项卡槽位")]
+    // 把那 3 个 UpgradeOptionUI 拖进去
     [SerializeField] private List<UpgradeOptionUI> optionSlots;
 
     private void Awake() {
+        // 游戏开始时确保面板是隐藏的
         panelContainer.SetActive(false);
     }
 
@@ -23,7 +25,7 @@ public class UpgradeUI : MonoBehaviour {
                 optionSlots[i].gameObject.SetActive(true);
                 optionSlots[i].SetOption(options[i]);
             } else {
-                // 如果选项不足 3 个，隐藏多余的按钮
+                // 如果选项不足 3 个（极其罕见），隐藏多余的按钮
                 optionSlots[i].gameObject.SetActive(false);
             }
         }

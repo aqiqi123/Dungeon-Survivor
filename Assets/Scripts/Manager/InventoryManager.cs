@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        // 初始化 UI：把所有图标设为默认
+        // 初始化 UI：把所有图标设为默认/透明
         ClearSlotUI();
     }
 

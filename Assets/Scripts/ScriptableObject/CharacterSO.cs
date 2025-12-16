@@ -19,7 +19,6 @@ public class CharacterSO : ScriptableObject
     [SerializeField] private float durationMultiplier;
     [SerializeField] private float areaMultiplier;
     [SerializeField] private int additionalPierceCount;
-    [SerializeField] private float luck;
 
     public string CharacterName=>characterName;
     public Sprite Icon=>icon;
@@ -34,5 +33,4 @@ public class CharacterSO : ScriptableObject
     public float DurationMultiplier => durationMultiplier;
     public float AreaMultiplier => areaMultiplier;
     public int AdditionalPierceCount=>additionalPierceCount;
-    public float Luck => luck;
 }

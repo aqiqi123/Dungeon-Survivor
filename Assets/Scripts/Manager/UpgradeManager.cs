@@ -22,19 +22,12 @@ public class UpgradeManager : MonoBehaviour {
     public Sprite healIcon;
 
     [Header("引用")]
-    [SerializeField] private UpgradeUI upgradeUI;
+    [SerializeField] private UpgradeUI upgradeUI; // 你之前写的 UI 控制器
 
     // 监听升级事件
     private void Start() {
-        if (LevelManager.Instance != null){ 
+        if (LevelManager.Instance != null)
             LevelManager.Instance.OnLevelUp += OnLevelUpHandler;
-        }
-    }
-
-    private void OnDestroy() {
-        if (LevelManager.Instance != null){ 
-            LevelManager.Instance.OnLevelUp -= OnLevelUpHandler;
-        }
     }
 
     private void OnLevelUpHandler(int level) {
@@ -63,7 +56,7 @@ public class UpgradeManager : MonoBehaviour {
                 WeaponStats nextStats = wp.LevelData[nextLv - 1];
 
                 UpgradeOption option = new UpgradeOption();
-                option.upgradeName = wp.WeaponName; 
+                option.upgradeName = wp.WeaponName; // UI标题
                 option.upgradeDescription = $"{(hasIt ? $"Level Up to LV {nextLv}" : "New Weapon!")}\n{nextStats.description}";
                 option.upgradeIcon = wp.Icon;
                 option.onSelect = () => {
@@ -142,12 +135,14 @@ public class UpgradeManager : MonoBehaviour {
         }
 
         // 5. 打开 UI
+        // 记得在这里暂停游戏
         Time.timeScale = 0f;
         upgradeUI.OpenPanel(finalChoices);
     }
 
     private void EndUpgradeProcess() {
         // 关闭 UI 并恢复时间
+        // 如果你有之前讨论的"UI排队"逻辑，这里应该调用 CheckPendingUpgrades
         Time.timeScale = 1f;
         upgradeUI.ClosePanel();
     }

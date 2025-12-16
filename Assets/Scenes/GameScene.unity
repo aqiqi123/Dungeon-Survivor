@@ -3799,7 +3799,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 628fda64717521a45b7d02cb6ab5173c, type: 2}
   - {fileID: 11400000, guid: 675db821a3d08ef47a942a328da3fb55, type: 2}
   - {fileID: 11400000, guid: 9bc05889969dfb44da3c01de73fa0ee2, type: 2}
-  - {fileID: 11400000, guid: d34bb0e20161fa044894caace7b4c738, type: 2}
   goldIcon: {fileID: -1572544686, guid: 1f1c6d3d321d4604ca17999a1355debd, type: 3}
   healIcon: {fileID: -614740339, guid: 5dfebef7a4be8cc4b82cde5495de214b, type: 3}
   upgradeUI: {fileID: 1361189445}
