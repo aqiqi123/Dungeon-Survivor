@@ -109,7 +109,7 @@ public abstract class WeaponBase : MonoBehaviour
         float minDst = Mathf.Infinity;
 
         foreach (var hit in hits) {
-            float dst = Vector3.Distance(transform.position, hit.transform.position);
+            float dst = (transform.position-hit.transform.position).sqrMagnitude;//计算距离的平方，避免开方运算
 
             if (dst < minDst) {
                 minDst = dst;

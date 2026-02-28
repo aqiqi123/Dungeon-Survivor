@@ -49,11 +49,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     private void InitializeStats() {
-        if(characterData == null) {
-            Debug.LogError("PlayerStats:Íü¼ÇÍÏ×§CharacterSOÁË£¡");
-            return;
-        }
-
         CurrentMaxHealth = characterData.MaxHealth;
         CurrentMoveSpeed = characterData.MoveSpeed;
         CurrentMight = characterData.Might;

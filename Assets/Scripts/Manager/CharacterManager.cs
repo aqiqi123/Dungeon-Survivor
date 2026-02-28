@@ -10,12 +10,12 @@ public static class CharacterManager
     public const string GOLD_SAVE_KEY = "TotalGold";
 
     public static int GetTotalGold() {
-        return PlayerPrefs.GetInt(GOLD_SAVE_KEY,0);
+        return SaveManager.Load().totalGold;
     }
 
     public static void AddTotalGold(int amount) {
-        int current=GetTotalGold();
-        PlayerPrefs.SetInt(GOLD_SAVE_KEY,current+amount);
-        PlayerPrefs.Save();
+        SaveData data=SaveManager.Load();
+        data.totalGold += amount;
+        SaveManager.Save(data);
     }
 }
