@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: -6710379897485760261}
   - component: {fileID: -8291466327213897716}
   - component: {fileID: 4288245452051824767}
+  - component: {fileID: 4728608270226080849}
   m_Layer: 8
   m_Name: Gray Mouse
   m_TagString: Untagged
@@ -321,3 +322,15 @@ MonoBehaviour:
   detectRange: 13
   bulletCount: 3
   spreadAngle: 50
+--- !u!114 &4728608270226080849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202159303875419705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5abe6bdf8500f744965cff2ef76d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

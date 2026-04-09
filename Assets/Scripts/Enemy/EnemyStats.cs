@@ -24,10 +24,20 @@ public class EnemyStats : PoolableObject
         CurrentSizeMultiplier = 1f;
 
         healthSystem.OnDeath+= HandleDeath;
+
+        if (EnemySpatialManager.Instance != null && TryGetComponent<EnemyAgent>(out var agent))
+        {
+            EnemySpatialManager.Instance.Register(agent);
+        }
     }
 
     public override void OnDespawn() {
         healthSystem.OnDeath -= HandleDeath;
+
+        if (EnemySpatialManager.Instance != null && TryGetComponent<EnemyAgent>(out var agent))
+        {
+            EnemySpatialManager.Instance.UnRegister(agent);
+        }
     }
 
     private void InitializeStats() {

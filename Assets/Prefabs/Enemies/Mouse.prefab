@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4726161944234043785}
   - component: {fileID: -3749166475037826363}
   - component: {fileID: -800565304519388314}
+  - component: {fileID: 248131400948387076}
   m_Layer: 8
   m_Name: Mouse
   m_TagString: Untagged
@@ -301,3 +302,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumberPrefab: {fileID: 3829955131241846737, guid: ab123c5ed767b044a9e8d2398fae2289, type: 3}
+--- !u!114 &248131400948387076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352603860389567573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5abe6bdf8500f744965cff2ef76d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
