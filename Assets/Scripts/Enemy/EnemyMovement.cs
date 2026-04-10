@@ -12,28 +12,31 @@ public class EnemyMovement : MonoBehaviour
 
     // 给空间管理器读取的“追玩家目标速度”
     public Vector2 DesiredVelocity { get; private set; }
+    public EnemyStats Stats => enemyStats;
+    public Rigidbody2D Rb => rb;
+    public Vector2 Position => rb.position;
 
     private void Awake() {
         enemyStats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate() {
-        HandleMovement();
+    private void OnEnable()
+    {
+        EnemyMovementBatchCalculator.Instance?.Register(this);
     }
 
-    private void HandleMovement() {
-        if (PlayerStats.Instance == null) {
-            DesiredVelocity = Vector2.zero;
-            return;
+    private void OnDisable()
+    {
+        EnemyMovementBatchCalculator.Instance?.UnRegister(this);
+    }
+
+    public void SetDesiredVelocity(Vector2 velocity)
+    {
+        DesiredVelocity = velocity;
+        if (visual != null && velocity.x != 0f)
+        {
+            visual.flipX = velocity.x < 0f;
         }
-
-        Vector2 moveDir = (PlayerStats.Instance.transform.position-transform.position).normalized;
-
-        if (moveDir.x != 0) {
-            visual.flipX = moveDir.x < 0;
-        }
-
-        DesiredVelocity = moveDir * enemyStats.CurrentMoveSpeed;
     }
 }
