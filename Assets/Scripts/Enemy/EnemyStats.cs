@@ -7,12 +7,13 @@ public class EnemyStats : PoolableObject
 {
     [SerializeField] EnemySO enemyData;
 
-    public float CurrentMaxHealth {  get; private set; }
-    public float CurrentMoveSpeed { get; private set; }
-    public float CurrentDamage {  get; private set; }
-    public float CurrentSizeMultiplier { get; private set; } = 1f;
+    public float CurrentMaxHealth => model.CurrentMaxHealth;
+    public float CurrentMoveSpeed => model.CurrentMoveSpeed;
+    public float CurrentDamage => model.CurrentDamage;
+    public float CurrentSizeMultiplier => model.CurrentSizeMultiplier;
 
     private HealthSystem healthSystem;
+    private EnemyModel model;
 
     private void Awake() {
         healthSystem = GetComponent<HealthSystem>();
@@ -20,8 +21,7 @@ public class EnemyStats : PoolableObject
 
     public override void OnSpawn() {
         InitializeStats();
-        transform.localScale = Vector3.one;
-        CurrentSizeMultiplier = 1f;
+        transform.localScale = Vector3.one * model.CurrentSizeMultiplier;
 
         healthSystem.OnDeath+= HandleDeath;
 
@@ -46,11 +46,10 @@ public class EnemyStats : PoolableObject
             return;
         }
 
-        CurrentMaxHealth = enemyData.MaxHealth;
-        CurrentMoveSpeed = enemyData.MoveSpeed;
-        CurrentDamage = enemyData.Damage;
+        model = new EnemyModel();
+        model.Initialize(enemyData);
 
-        healthSystem.Initialize(CurrentMaxHealth);
+        healthSystem.Initialize(model.CurrentMaxHealth);
     }
 
     // ¥¶¿Ìµ–»ÀÀ¿Õˆ
@@ -65,25 +64,12 @@ public class EnemyStats : PoolableObject
                            float speedGrowth, float speedLimit,
                            float damageGrowth, float damageLimit,
                            float sizeGrowth, float sizeLimit) {
-        if (loopCount <= 0) return;
+        if (!model.ApplyBuffs(loopCount, healthGrowth, healthLimit, speedGrowth, speedLimit, damageGrowth, damageLimit, sizeGrowth, sizeLimit)) {
+            return;
+        }
 
-        float hpMult = 1f + (loopCount * healthGrowth);
-        float speedMult = 1f + (loopCount * speedGrowth);
-        float dmgMult = 1f + (loopCount * damageGrowth);
-        float sizeMult = 1f + (loopCount * sizeGrowth);
+        transform.localScale = Vector3.one * model.CurrentSizeMultiplier;
 
-        hpMult = Mathf.Min(hpMult, healthLimit);
-        speedMult = Mathf.Min(speedMult, speedLimit);
-        dmgMult = Mathf.Min(dmgMult, damageLimit);
-        sizeMult = Mathf.Min(sizeMult, sizeLimit);
-
-        CurrentMaxHealth *= hpMult;
-        CurrentMoveSpeed *= speedMult;
-        CurrentDamage *= dmgMult;
-        CurrentSizeMultiplier = sizeMult;
-
-        transform.localScale = Vector3.one * sizeMult;
-
-        healthSystem.Initialize(CurrentMaxHealth);
+        healthSystem.Initialize(model.CurrentMaxHealth);
     }
 }

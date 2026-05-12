@@ -1,45 +1,40 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    private WeaponSO weaponData;
+    private WeaponModel model;
 
-    public WeaponSO WeaponData=>weaponData;
+    public WeaponSO WeaponData => model != null ? model.WeaponData : null;
 
     [SerializeField] protected LayerMask enemyLayer;
     [SerializeField] protected float detectRange;
 
-    private int currentLevelIndex = 0;
-
-    public GameObject CurrentBulletPrefab { get; private set; }
-    public float CurrentDamage {  get; private set; }
-    public float CurrentCooldown { get; private set; }  
-    public float CurrentSpeed { get; private set; }
-    public float CurrentDuration { get; private set; }
-    public int CurrentCount { get; private set; }
-    public float CurrentArea { get; private set; }
-    public int CurrentPierce { get; private set; }
-    public float CurrentProjectileInterval { get; private set; }
-    public float CurrentAttackInterval { get; private set; }
+    public GameObject CurrentBulletPrefab => model != null ? model.CurrentBulletPrefab : null;
+    public float CurrentDamage => model != null ? model.CurrentDamage : 0f;
+    public float CurrentCooldown => model != null ? model.CurrentCooldown : 0f;
+    public float CurrentSpeed => model != null ? model.CurrentSpeed : 0f;
+    public float CurrentDuration => model != null ? model.CurrentDuration : 0f;
+    public int CurrentCount => model != null ? model.CurrentCount : 0;
+    public float CurrentArea => model != null ? model.CurrentArea : 0f;
+    public int CurrentPierce => model != null ? model.CurrentPierce : 0;
+    public float CurrentProjectileInterval => model != null ? model.CurrentProjectileInterval : 0f;
+    public float CurrentAttackInterval => model != null ? model.CurrentAttackInterval : 0f;
 
     protected float timer;
 
     // 对外公开的初始化方法
     public void Initialize(WeaponSO data) {
-        weaponData = data;
-        currentLevelIndex = 0; // 初始为 1级
+        model = new WeaponModel();
+        model.Initialize(data);
         RecalculateStats();
     }
 
     // 对外公开的升级方法
     public void LevelUp(int newLevel) {
-        // 防止数组越界
-        if (weaponData != null && newLevel <= weaponData.LevelData.Count) {
-            currentLevelIndex = newLevel - 1; // 转换为索引
-            RecalculateStats();
-        }
+        if (model == null) return;
+        model.LevelUp(newLevel);
+        RecalculateStats();
     }
 
     protected virtual void Start() {
@@ -55,40 +50,8 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     public void RecalculateStats() {
-        if (weaponData == null || PlayerStats.Instance == null) return;
-
-        if (weaponData.LevelData == null || weaponData.LevelData.Count == 0) {
-            Debug.LogError($"WeaponSO {weaponData.name} 缺少等级数据！");
-            return;
-        }
-
-        if (currentLevelIndex >= weaponData.LevelData.Count) {
-            currentLevelIndex = weaponData.LevelData.Count - 1;
-        }
-
-        //提取当前等级的结构体数据
-        WeaponStats stats = weaponData.LevelData[currentLevelIndex];
-
-
-        CurrentBulletPrefab = weaponData.BulletPrefab;
-
-        CurrentDamage = stats.damage * PlayerStats.Instance.CurrentMight;
-
-        CurrentCooldown = stats.cooldown * (1f - PlayerStats.Instance.CurrentCooldownReduction);
-
-        CurrentCount = stats.count + (int)PlayerStats.Instance.CurrentAdditionalProjectileCount;
-
-        CurrentArea = stats.area * PlayerStats.Instance.CurrentAreaMultiplier;
-
-        CurrentSpeed = stats.speed * PlayerStats.Instance.CurrentProjectileSpeed;
-
-        CurrentDuration = stats.duration * PlayerStats.Instance.CurrentDurationMultiplier;
-
-        CurrentPierce = stats.pierce + PlayerStats.Instance.CurrentAdditionalPierceCount;
-
-        CurrentProjectileInterval = stats.projectileInterval;
-
-        CurrentAttackInterval = stats.attackInterval;
+        if (model == null || PlayerStats.Instance == null) return;
+        if (!model.RecalculateStats(PlayerStats.Instance.Model)) return;
 
         OnStatsUpdated();
     }
