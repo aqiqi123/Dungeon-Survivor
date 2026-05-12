@@ -14,7 +14,7 @@ public class FireBallProjectile : ProjectileBase
 
     public override void UpdateScale(float areaMultiplier) {
         base.UpdateScale(areaMultiplier);
-        currentAreaMultiplier = areaMultiplier;
+        currentAreaMultiplier = model != null ? model.AreaMultiplier : areaMultiplier;
     }
 
     protected override void OnHit(IDamageable target) {
@@ -27,7 +27,9 @@ public class FireBallProjectile : ProjectileBase
 
         foreach (var hit in hits) {
             if (hit.TryGetComponent<IDamageable>(out var enemy)) {
-                enemy.TakeDamage(damage);
+                if (model != null) {
+                    enemy.TakeDamage(model.Damage.FinalDamage);
+                }
             }
         }
 

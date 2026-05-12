@@ -3,25 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ProjectileBase : PoolableObject {
-    protected Vector2 direction;
-    protected float speed;
-    protected float damage;
-    protected float duration;
-    protected float attackInterval;
-    protected int pierceCount;
+    protected ProjectileModel model;
 
     public virtual void Initialize(Vector2 direction,float speed,float damage,float duration,float attackInterval,int pierceCount) {
-        this.direction = direction;
-        this.speed = speed;
-        this.damage = damage;
-        this.attackInterval = attackInterval;
-        this.pierceCount = pierceCount;
+        model = new ProjectileModel();
+        model.Initialize(direction, speed, damage, duration, attackInterval, pierceCount);
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(model.Direction.y, model.Direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle-90f, Vector3.forward);
 
         CancelInvoke(nameof(ReturnToPool));
-        Invoke(nameof(ReturnToPool), duration);
+        Invoke(nameof(ReturnToPool), model.Duration);
     }
 
     protected virtual void Update() {
@@ -31,10 +23,14 @@ public abstract class ProjectileBase : PoolableObject {
     //让武器修改投射物的大小
     public virtual void UpdateScale(float areaMultiplier) {
         transform.localScale = Vector3.one * areaMultiplier;
+        if (model != null) {
+            model.UpdateAreaMultiplier(areaMultiplier);
+        }
     }
 
     protected virtual void Move() {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        if (model == null) return;
+        transform.Translate(Vector3.up * model.Speed * Time.deltaTime);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
@@ -44,10 +40,11 @@ public abstract class ProjectileBase : PoolableObject {
     }
 
     protected virtual void OnHit(IDamageable target) {
-        target.TakeDamage(damage);
+        if (model == null) return;
 
-        pierceCount--;
-        if (pierceCount <= 0) {
+        target.TakeDamage(model.Damage.FinalDamage);
+
+        if (!model.ConsumePierce()) {
             CancelInvoke(nameof(ReturnToPool));
             ReturnToPool();
         }

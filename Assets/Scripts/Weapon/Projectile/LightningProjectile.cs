@@ -31,7 +31,9 @@ public class LightningProjectile : ProjectileBase
 
         foreach (var hit in hits) {
             if (hit.TryGetComponent<IDamageable>(out var target)) {
-                target.TakeDamage(damage);
+                if (model != null) {
+                    target.TakeDamage(model.Damage.FinalDamage);
+                }
             }
         }
     }
