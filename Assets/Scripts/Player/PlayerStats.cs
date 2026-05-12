@@ -14,23 +14,26 @@ public class PlayerStats : MonoBehaviour
     public event Action OnGoldChanged;
 
     private CharacterSO characterData;
-    public CharacterSO CharacterData => characterData;
+    public CharacterSO CharacterData => model != null ? model.CharacterData : characterData;
 
-    public float CurrentMaxHealth {  get; private set; }
-    public float CurrentMoveSpeed {  get; private set; }
-    public float CurrentMight {  get; private set; }
-    public float CurrentMagnet {  get; private set; }
-    public float CurrentCooldownReduction {  get; private set; }
-    public int CurrentAdditionalProjectileCount {  get; private set; }
-    public float CurrentProjectileSpeed {  get; private set; }
-    public float CurrentDurationMultiplier {  get; private set; }
-    public float CurrentAreaMultiplier {  get; private set; }
-    public int CurrentAdditionalPierceCount { get; private set; }
-    public int CurrentGold { get; private set; }
-    public float CurrentLuck { get; private set; }
+    public float CurrentMaxHealth => model.CurrentMaxHealth;
+    public float CurrentMoveSpeed => model.CurrentMoveSpeed;
+    public float CurrentMight => model.CurrentMight;
+    public float CurrentMagnet => model.CurrentMagnet;
+    public float CurrentCooldownReduction => model.CurrentCooldownReduction;
+    public int CurrentAdditionalProjectileCount => model.CurrentAdditionalProjectileCount;
+    public float CurrentProjectileSpeed => model.CurrentProjectileSpeed;
+    public float CurrentDurationMultiplier => model.CurrentDurationMultiplier;
+    public float CurrentAreaMultiplier => model.CurrentAreaMultiplier;
+    public int CurrentAdditionalPierceCount => model.CurrentAdditionalPierceCount;
+    public int CurrentGold => model.CurrentGold;
+    public float CurrentLuck => model.CurrentLuck;
+
+    public PlayerModel Model => model;
 
     private HealthSystem healthSystem;
     private PlayerMovement playerMovement;
+    private PlayerModel model;
 
     private void Awake() {
         if (Instance == null) Instance = this;
@@ -49,33 +52,24 @@ public class PlayerStats : MonoBehaviour
     }
 
     private void InitializeStats() {
-        CurrentMaxHealth = characterData.MaxHealth;
-        CurrentMoveSpeed = characterData.MoveSpeed;
-        CurrentMight = characterData.Might;
-        CurrentMagnet = characterData.Magnet;
-        CurrentCooldownReduction = characterData.CooldownReduction;
-        CurrentAdditionalProjectileCount = characterData.AdditionalProjectileCount;
-        CurrentProjectileSpeed = characterData.ProjectileSpeed;
-        CurrentDurationMultiplier = characterData.DurationMultiplier;
-        CurrentAreaMultiplier = characterData.AreaMultiplier;
-        CurrentAdditionalPierceCount = characterData.AdditionalPierceCount;
-        CurrentLuck=characterData.Luck;
+        model = new PlayerModel();
+        model.Initialize(characterData);
 
-        healthSystem.Initialize(CurrentMaxHealth);
+        healthSystem.Initialize(model.CurrentMaxHealth);
     }
 
     //提供给被动道具调用的方法
-    public void IncreaseMight(float amount) { if (amount == 0) return; CurrentMight += amount; UpdateStats(); }
-    public void IncreaseMagnet(float percentage) { if (percentage == 0) return; CurrentMagnet *= (1 + percentage); UpdateStats(); }
-    public void IncreaseCooldownReduction(float amount) { if (amount == 0) return; CurrentCooldownReduction += amount; CurrentCooldownReduction = Mathf.Clamp(CurrentCooldownReduction, 0f, 0.9f); UpdateStats(); }
-    public void IncreaseProjectileCount(int amount) { if (amount == 0) return; CurrentAdditionalProjectileCount += amount; UpdateStats(); }
-    public void IncreaseMaxHealth(float amount) { if (amount == 0) return; CurrentMaxHealth += amount; healthSystem.IncreaseMaxHealth(amount); OnPlayerMaxHealthChanged?.Invoke(); }
-    public void IncreaseArea(float percentage) { if (percentage == 0) return; CurrentAreaMultiplier *=(1+ percentage); UpdateStats(); }
-    public void IncreaseSpeed(float percentage) { if (percentage == 0) return; CurrentProjectileSpeed += percentage; UpdateStats(); }
-    public void IncreaseDuration(float percentage) { if (percentage == 0) return; CurrentDurationMultiplier += percentage; UpdateStats(); }
-    public void IncreaseMoveSpeed(float percentage) { if (percentage == 0) return; CurrentMoveSpeed *=(1+ percentage); UpdateStats(); }
-    public void IncreasePierceCount(int amount) { if (amount == 0) return; CurrentAdditionalPierceCount += amount; UpdateStats(); }
-    public void IncreaseLuck(float amount) { if (amount == 0) return; CurrentLuck += amount; UpdateStats(); }
+    public void IncreaseMight(float amount) { if (!model.IncreaseMight(amount)) return; UpdateStats(); }
+    public void IncreaseMagnet(float percentage) { if (!model.IncreaseMagnet(percentage)) return; UpdateStats(); }
+    public void IncreaseCooldownReduction(float amount) { if (!model.IncreaseCooldownReduction(amount)) return; UpdateStats(); }
+    public void IncreaseProjectileCount(int amount) { if (!model.IncreaseProjectileCount(amount)) return; UpdateStats(); }
+    public void IncreaseMaxHealth(float amount) { if (!model.IncreaseMaxHealth(amount)) return; healthSystem.IncreaseMaxHealth(amount); OnPlayerMaxHealthChanged?.Invoke(); }
+    public void IncreaseArea(float percentage) { if (!model.IncreaseArea(percentage)) return; UpdateStats(); }
+    public void IncreaseSpeed(float percentage) { if (!model.IncreaseSpeed(percentage)) return; UpdateStats(); }
+    public void IncreaseDuration(float percentage) { if (!model.IncreaseDuration(percentage)) return; UpdateStats(); }
+    public void IncreaseMoveSpeed(float percentage) { if (!model.IncreaseMoveSpeed(percentage)) return; UpdateStats(); }
+    public void IncreasePierceCount(int amount) { if (!model.IncreasePierceCount(amount)) return; UpdateStats(); }
+    public void IncreaseLuck(float amount) { if (!model.IncreaseLuck(amount)) return; UpdateStats(); }
     public void Heal(float amount) { healthSystem.Heal(amount); OnPlayerHealthChanged?.Invoke(); }
 
 
@@ -102,7 +96,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void AddGold(int amount) {
-        CurrentGold += amount;
+        model.AddGold(amount);
         OnGoldChanged?.Invoke();
     }
 
@@ -111,6 +105,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     public Vector2 GetFacingDirection() {
-        return playerMovement.facingDirection;
+        return model.FacingDirection;
     }
 }

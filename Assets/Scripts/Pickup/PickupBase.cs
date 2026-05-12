@@ -40,8 +40,10 @@ public abstract class PickupBase : PoolableObject {
     protected virtual void Update() {
         if (targetPlayer == null) return;
 
+        Vector3 playerPosition = targetPlayer.position;
+
         if (!isMagnetized) {
-            float distance = Vector3.Distance(transform.position, targetPlayer.position);
+            float distance = Vector3.Distance(transform.position, playerPosition);
 
             // 获取玩家当前的拾取范围加成
             float pickupRange = magnetDistance * (PlayerStats.Instance != null ? PlayerStats.Instance.CurrentMagnet : 1f);
@@ -53,10 +55,11 @@ public abstract class PickupBase : PoolableObject {
 
         //飞向玩家
         if (isMagnetized) {
-            transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, playerPosition, moveSpeed * Time.deltaTime);
             moveSpeed += 20f * Time.deltaTime;
 
-            if (Vector3.Distance(transform.position, targetPlayer.position) < 0.5f) {
+            if ((transform.position - playerPosition).sqrMagnitude < 0.25f)
+            { 
                 TriggerPickup();
             }
         }
