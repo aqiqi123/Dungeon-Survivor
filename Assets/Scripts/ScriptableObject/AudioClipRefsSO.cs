@@ -8,4 +8,6 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] Coin;
 
     public AudioClip[] Levelup;
+
+    public AudioClip[] GemCollect;
 }

@@ -6,6 +6,8 @@ public class ExpGem : PickupBase, IPickupable {
     public void OnPickUp() {
         if (LevelManager.Instance == null) return;
 
+        
+
         LevelManager.Instance.AddExperience(expAmount);
     }
 }

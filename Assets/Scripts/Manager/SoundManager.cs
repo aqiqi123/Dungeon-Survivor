@@ -17,6 +17,12 @@ public class SoundManager : MonoBehaviour
     {
         PlayerStats.Instance.OnGoldChanged += PlayerStats_OnGoldChanged;
         LevelManager.Instance.OnLevelUp += LevelManager_OnLevelUp;
+        LevelManager.Instance.OnExperienceChanged += LevelManager_OnExperienceChanged;
+    }
+
+    private void LevelManager_OnExperienceChanged(int arg1, int arg2, int arg3)
+    {
+        PlaySound(audioClipRefsSO.GemCollect);
     }
 
     private void LevelManager_OnLevelUp(int obj)

@@ -16,3 +16,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bb74ec46478b0754eb9d7325a29c7b8c, type: 3}
   Levelup:
   - {fileID: 8300000, guid: 8a21cde66b110264bb92a14af8fffcd2, type: 3}
+  GemCollect:
+  - {fileID: 8300000, guid: 4259b2068f8d59c43a222fcfebdbc791, type: 3}
